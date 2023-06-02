@@ -15,7 +15,7 @@ sub=$1
 nruns=$2
 
 for run in `seq $nruns`; do
-  input=${maindir}/bids/sub-${sub}/func/sub-${sub}_task-trust_run-0${run}_events.tsv
+  input=/data/projects/rf1-sra-data/bids/sub-${sub}/func/sub-${sub}_task-trust_run-0${run}_events.tsv
   output=${baseout}/sub-${sub}/trust
   mkdir -p $output
   if [ -e $input ]; then
