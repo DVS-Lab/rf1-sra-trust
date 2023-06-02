@@ -1,7 +1,7 @@
 function convertTrust_BIDS(subj)
 maindir = pwd;
 cd ..
-dsdir = pwd;
+dsdir = '/data/projects/rf1-sra-data';
 cd(maindir)
 
 % Partner is Friend=3, Stranger=2, Computer=1
@@ -11,11 +11,13 @@ cd(maindir)
 % high/low value option will randomly flip between left/right
 % 
 % subj = subject number
+%/data/projects/rf1-sra/stimuli/Scan-Investment_Game/logs
+rawdata='/data/projects/rf1-sra/stimuli/Scan-Investment_Game/logs';
 
 try
     
     for r = 0:4
-        fname = fullfile(maindir,'psychopy','logs',num2str(subj),sprintf('sub-%03d_task-trust_run-%d_raw.csv',subj,r));
+        fname = fullfile(rawdata,num2str(subj),sprintf('sub-%03d_task-trust_run-%d_raw.csv',subj,r));
         if exist(fname,'file')
             fid = fopen(fname,'r');
         else
@@ -29,12 +31,12 @@ try
         outcomeonset = C{20}; % should be locked to the presentation of the partner cue (at least 500 ms before choice screen)
         choiceonset = C{11}; % should be locked to the presentation of the partner cue (at least 500 ms before choice screen)
         RT = C{16};
-        Partner = C{4};
-        reciprocate = C{3};
+        Partner = C{5};
+        reciprocate = C{6};
         response = C{15}; % high/low -- build in check below to check recording
         trust_val = C{13}; % 0-8 (with '999' for no response)
-        cLeft = C{6};
-        cRight = C{8};
+        cLeft = C{3};
+        cRight = C{4};
         options = [cLeft cRight];
         
         fname = sprintf('sub-%03d_task-trust_run-%02d_events.tsv',subj,r+1);
