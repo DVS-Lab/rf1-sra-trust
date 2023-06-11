@@ -5,7 +5,7 @@ scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 basedir="$(dirname "$scriptdir")"
 
 for ppi in 0 "VS"; do # putting 0 first will indicate "activation"; putting the name of a mask will indicate ppi
-	for subrun in "10584 2"; do
+	for subrun in "10418 2"; do
 
 	  set -- $subrun
 	  sub=$1

@@ -15,44 +15,17 @@ MAINOUTPUT=${maindir}/derivatives/fsl/sub-${sub}
 if [ $sub -eq 145 ] || [ $sub -eq 152 ]; then # bad data
 	echo "skipping sub-${sub} for task-trust"
 else
-	if [ $sub -eq 129 ] || [ $sub -eq 138 ]; then # bad data
+	if [ "${type}" == "act" ]; then # bad data
 		nruns=2
-		INPUT1=${MAINOUTPUT}/L1_task-trust_model-01_type-${type}_run-01_sm-${sm}.feat
-		INPUT2=${MAINOUTPUT}/L1_task-trust_model-01_type-${type}_run-02_sm-${sm}.feat
-		INPUT3=${MAINOUTPUT}/L1_task-trust_model-01_type-${type}_run-03_sm-${sm}.feat
-		INPUT4=${MAINOUTPUT}/L1_task-trust_model-01_type-${type}_run-04_sm-${sm}.feat
-	elif [ $sub -eq 118 ]; then # bad data
-		nruns=4
-		INPUT1=${MAINOUTPUT}/L1_task-trust_model-01_type-${type}_run-01_sm-${sm}.feat
-		INPUT2=${MAINOUTPUT}/L1_task-trust_model-01_type-${type}_run-02_sm-${sm}.feat
-		INPUT3=${MAINOUTPUT}/L1_task-trust_model-01_type-${type}_run-04_sm-${sm}.feat
-		INPUT4=${MAINOUTPUT}/L1_task-trust_model-01_type-${type}_run-05_sm-${sm}.feat
-	elif [ $sub -eq 111 ] || [ $sub -eq 128 ]; then # sub-111 (misses), sub-128 (bad registration)
-		nruns=4
-		INPUT1=${MAINOUTPUT}/L1_task-trust_model-01_type-${type}_run-02_sm-${sm}.feat
-		INPUT2=${MAINOUTPUT}/L1_task-trust_model-01_type-${type}_run-03_sm-${sm}.feat
-		INPUT3=${MAINOUTPUT}/L1_task-trust_model-01_type-${type}_run-04_sm-${sm}.feat
-		INPUT4=${MAINOUTPUT}/L1_task-trust_model-01_type-${type}_run-05_sm-${sm}.feat
-	elif [ $sub -eq 150 ]; then # bad data
-		nruns=4
-		INPUT1=${MAINOUTPUT}/L1_task-trust_model-01_type-${type}_run-01_sm-${sm}.feat
-		INPUT2=${MAINOUTPUT}/L1_task-trust_model-01_type-${type}_run-03_sm-${sm}.feat
-		INPUT3=${MAINOUTPUT}/L1_task-trust_model-01_type-${type}_run-04_sm-${sm}.feat
-		INPUT4=${MAINOUTPUT}/L1_task-trust_model-01_type-${type}_run-05_sm-${sm}.feat
-	elif [ $sub -eq 131 ]; then # bad data
-		nruns=2
-		INPUT1=${MAINOUTPUT}/L1_task-trust_model-01_type-${type}_run-01_sm-${sm}.feat
-		INPUT2=${MAINOUTPUT}/L1_task-trust_model-01_type-${type}_run-04_sm-${sm}.feat
+		INPUT1=${MAINOUTPUT}/L1_task-trust_model-01_type-${type}_run-01_sm-${sm}_tmp.feat
+		INPUT2=${MAINOUTPUT}/L1_task-trust_model-01_type-${type}_run-02_sm-${sm}_tmp.feat
 	else
 		INPUT1=${MAINOUTPUT}/L1_task-trust_model-01_type-${type}_run-01_sm-${sm}.feat
 		INPUT2=${MAINOUTPUT}/L1_task-trust_model-01_type-${type}_run-02_sm-${sm}.feat
-		INPUT3=${MAINOUTPUT}/L1_task-trust_model-01_type-${type}_run-03_sm-${sm}.feat
-		INPUT4=${MAINOUTPUT}/L1_task-trust_model-01_type-${type}_run-04_sm-${sm}.feat
-		INPUT5=${MAINOUTPUT}/L1_task-trust_model-01_type-${type}_run-05_sm-${sm}.feat
 	fi
 
 	# check for existing output and re-do if missing/incomplete
-	OUTPUT=${MAINOUTPUT}/L2_task-trust_model-01_type-${type}_sm-${sm}
+	OUTPUT=${MAINOUTPUT}/L2_task-trust_model-01_type-${type}_sm-${sm}_tmp
 	if [ -e ${OUTPUT}.gfeat/cope18.feat/cluster_mask_zstat1.nii.gz ]; then # check last (act) or penultimate (ppi) cope
 		echo "skipping existing output"
 	else
