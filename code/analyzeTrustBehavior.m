@@ -7,7 +7,7 @@ cd ../../rf1-sra-trust/code
 try
     
     [onsets,trial_type,RT,trust_value] = deal([]);
-    for r = 1:5
+    for r = 1:2
         
         
         fname = sprintf('sub-%05d_task-trust_run-%01d_events.tsv',subj,r);

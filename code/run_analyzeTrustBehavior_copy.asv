@@ -6,7 +6,7 @@ clear all;
 % set paths and output
 codedir = pwd;
 addpath(codedir);
-basedir = pwd;
+basedir = fullfile(codedir,'../');
 outdir = fullfile(basedir,'derivatives','behavioral');
 if ~exist(outdir,'dir')
     mkdir(outdir);
