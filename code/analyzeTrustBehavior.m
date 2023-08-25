@@ -1,8 +1,13 @@
 function output = analyzeTrustBehavior(subj)
 maindir = pwd;
-cd ../../rf1-sra-data/bids_archived_230615
-bidsdir=pwd;
-cd ../../rf1-sra-trust/code
+% fullfile(maindir,'../','../')
+% cd ../rf1-sra-data/
+% bidsdir=pwd;
+% cd ../../rf1-sra-trust/code
+
+updir = fileparts(maindir)
+desireddir = fileparts(updir)
+
 
 try
     
@@ -11,7 +16,7 @@ try
         
         
         fname = sprintf('sub-%05d_task-trust_run-%01d_events.tsv',subj,r);
-        input = fullfile(bidsdir,['sub-' num2str(subj)],'func');
+        input = fullfile('rf1-sra-data','bids',['sub-' num2str(subj)],'func');
         infile = fullfile(input,fname);
         if exist(infile,'file')
             fid = fopen(infile,'r');
@@ -56,7 +61,6 @@ try
     
     output.friend_defect = std(friend_values(endsWith(friend_trials(:),'defect')));
     output.friend_recip = std(friend_values(endsWith(friend_trials(:),'recip')));
-    
 catch ME
-    keyboard
+    %keyboard
 end
