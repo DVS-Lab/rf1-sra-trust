@@ -1,6 +1,4 @@
-%% This script currently only works from the linux box due to hardcoded paths 
-
-%function convertTrust_BIDS(sublist(s))
+function convertTrust_BIDS(subj)
 %% set up dirs
 scriptname = matlab.desktop.editor.getActiveFilename;
 [codedir,~,~] = fileparts(scriptname);
@@ -16,62 +14,45 @@ maindir = '/ZPOOL/data/projects/rf1-sra-data';%pwd;
 % cRight is the right option
 % high/low value option will randomly flip between left/right
 % 
-% sublist(s) = sublist(s)ect number
+% subj = subject number
 %/data/projects/rf1-sra/stimuli/Scan-Investment_Game/logs
 rawdata='/ZPOOL/data/projects/rf1-sra/stimuli/Scan-Investment_Game/logs';
 
-%sublist(s)=10369;
+%subj=10369;
 sublist = [10317 10369 10402 10418 10462 10478 10486 10529 10541 10572 10581 10584 10585 10589 10590 10596 10603 10606 10608 10617 10636 10638 10641 10642 10644 10647 10649 10652 10656 10657 10659 10663 10673 10674 10677 10685 10691 10700 10701 10716 10720 10723 10741 10774 10777 10781 10783 10800 10804];
 
-for s = 1:length(sublist)
+for subj in sublist
 
 try
     
     for r = 0:1
         %r=0;
-        fname = fullfile(rawdata,num2str(sublist(s)),sprintf('sub-%03d_task-trust_run-%d_raw.csv',sublist(s),r));
+        fname = fullfile(rawdata,num2str(subj),sprintf('sub-%03d_task-trust_run-%d_raw.csv',subj,r));
         if exist(fname,'file')
             disp("First checkpoint");
             fid = fopen(fname,'r');
         else
-            fprintf('sub-%d -- Investment Game, Run %d: No data found.\n', sublist(s), r+1)
+            fprintf('sub-%d -- Investment Game, Run %d: No data found.\n', subj, r+1)
             continue;
         end
         
         %Todo: change from textscan to readtable
-        % C = textscan(fid,[repmat('%f',1,14) '%s' repmat('%f',1,9)],'Delimiter',',','HeaderLines',1,'EmptyValue', NaN);
-        % fclose(fid);
-        % 
-        % outcomeonset = C{20}; % should be locked to the presentation of the partner cue (at least 500 ms before choice screen)
-        % choiceonset = C{11}; % should be locked to the presentation of the partner cue (at least 500 ms before choice screen)
-        % RT = C{18};
-        % Partner = C{5};
-        % reciprocate = C{6};
-        % response = C{15}; % high/low -- build in check below to check recording
-        % trust_val = C{13}; % 0-8 (with '999' for no response)
-        % cLeft = C{3};
-        % cRight = C{4};
-        % options = [cLeft cRight];
-
-                % Read the data using readtable, delete textscan later 
-        T = readtable(fname, 'Delimiter', ',');
+        C = textscan(fid,[repmat('%f',1,14) '%s' repmat('%f',1,9)],'Delimiter',',','HeaderLines',1,'EmptyValue', NaN);
         fclose(fid);
-
-        % Extract the columns you need using column names
-        outcomeonset = T.outcome_onset; % should be locked to the presentation of the partner cue (at least 500 ms before choice screen)
-        choiceonset = T.onset; % should be locked to the presentation of the partner cue (at least 500 ms before choice screen)
-        RT = T.rt;
-        Partner = T.Partner;
-        reciprocate = T.Reciprocate;
-        response = T.highlow; % high/low -- build in check below to check recording
-        trust_val = T.resp; % 0-8 (with '999' for no response)
-        cLeft = T.cLeft;
-        cRight = T.cRight;
-        options = [cLeft, cRight];
-
         
-        fname = sprintf('sub-%03d_task-trust_run-%01d_events.tsv',sublist(s),r+1);
-        output = fullfile(maindir,'bids',['sub-' num2str(sublist(s))],'func');
+        outcomeonset = C{20}; % should be locked to the presentation of the partner cue (at least 500 ms before choice screen)
+        choiceonset = C{11}; % should be locked to the presentation of the partner cue (at least 500 ms before choice screen)
+        RT = C{18};
+        Partner = C{5};
+        reciprocate = C{6};
+        response = C{15}; % high/low -- build in check below to check recording
+        trust_val = C{13}; % 0-8 (with '999' for no response)
+        cLeft = C{3};
+        cRight = C{4};
+        options = [cLeft cRight];
+        
+        fname = sprintf('sub-%03d_task-trust_run-%02d_events.tsv',subj,r+1);
+        output = fullfile(maindir,'bids',['sub-' num2str(subj)],'func');
         disp(output);
         if ~exist(output,'dir')
             disp("Second checkpoint");
@@ -121,7 +102,7 @@ try
         fclose(fid);
         % rand_trial = randsample(1:36,1);
         % if trust_val(rand_trial) == 999
-        %     %fprintf('sub-%d -- Investment Game, Run %d: On trial %d, Participant did not respond.\n',sublist(s), r+1, rand_trial);
+        %     %fprintf('sub-%d -- Investment Game, Run %d: On trial %d, Participant did not respond.\n',subj, r+1, rand_trial);
         % else
         %     if reciprocate(rand_trial)
         %         participant = (8 - trust_val(rand_trial)) + ((trust_val(rand_trial) * 3)/2);
@@ -137,7 +118,7 @@ try
         %     elseif (Partner(rand_trial) == 3)
         %         trial_type = 'Friend';
         %     end
-        %     %fprintf('sub-%d -- Investment Game, Run %d: On trial %d, Participant WINS $%.2f and %s WINS $%.2f.\n', sublist(s), r+1, rand_trial, participant, trial_type, friend);
+        %     %fprintf('sub-%d -- Investment Game, Run %d: On trial %d, Participant WINS $%.2f and %s WINS $%.2f.\n', subj, r+1, rand_trial, participant, trial_type, friend);
         % end
     end
     
@@ -146,5 +127,4 @@ catch ME
     msg = sprintf('check line %d', ME.stack.line);
     disp(msg);
     keyboard
-end
 end
