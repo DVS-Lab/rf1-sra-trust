@@ -6,14 +6,13 @@ clear all;
 % set paths and output
 codedir = pwd;
 addpath(codedir);
-cd ..
-basedir = pwd;
+basedir = fileparts(codedir);
 outdir = fullfile(basedir,'derivatives','behavioral');
 if ~exist(outdir,'dir')
     mkdir(outdir);
 end
 
-sublist = [];
+sublist = [10418 10541];
 
 
 fname = sprintf('summary_task-trust_desc-postOutcomeShifts-std.csv');
