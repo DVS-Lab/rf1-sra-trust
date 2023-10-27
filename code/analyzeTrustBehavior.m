@@ -1,33 +1,47 @@
-function output = analyzeTrustBehavior(subj)
-maindir = pwd;
-% fullfile(maindir,'../','../')
-% cd ../rf1-sra-data/
-% bidsdir=pwd;
-% cd ../../rf1-sra-trust/code
+% Get the path of the current script
+scriptname = matlab.desktop.editor.getActiveFilename;
 
-updir = fileparts(maindir)
-desireddir = fileparts(updir)
+% Get the directory containing the current script
+[codedir, ~, ~] = fileparts(scriptname);
+cd(codedir);
+addpath(codedir);
+cd ..
 
+maindir = '/Users/coopersharp/Documents/GitHub/rf1-sra-data';
+rawdata = '/Users/coopersharp/Documents/GitHub/rf1-sra-data/bids/';
+basedir = '/Users/coopersharp/Documents/GitHub/rf1-sra-trust';
+outdir = fullfile(basedir, 'derivatives', 'behavioral');
+if ~exist(outdir, 'dir')
+    mkdir(outdir);
+end
 
-try
-    
-    [onsets,trial_type,RT,trust_value] = deal([]);
-    for r = 1:2
-        
-        
-        fname = sprintf('sub-%05d_task-trust_run-%01d_events.tsv',subj,r);
-        input = fullfile('rf1-sra-data','bids',['sub-' num2str(subj)],'func');
-        infile = fullfile(input,fname);
-        if exist(infile,'file')
-            fid = fopen(infile,'r');
-            C = textscan(fid,'%f%f%s%f%s%s%d%d','Delimiter','\t','HeaderLines',1,'EmptyValue', NaN);
-            fclose(fid);
-        end
-        
-        onsets = [onsets; C{1}];
-        trial_type = [trial_type; C{3}];
-        RT = [RT; C{4}];
-        trust_value = [trust_value; C{5}];
+sublist = [10418 10462 10478 10486 10529 10541 10572 10581 10584 10585 10589 10590 10596 10603 10606 10608 10617 10636 10638 10641 10642 10644 10647 10649 10652 10656 10657 10659 10663 10673 10674 10677 10685 10691 10700 10701 10716 10720 10723 10741 10774 10777 10781 10783 10800 10804];
+
+fname = sprintf('summary_task-trust_desc-postOutcomeShifts-std.csv');
+fid = fopen(fullfile(outdir, fname), 'w');
+fprintf(fid, 'sub,computer_defect,computer_recip,stranger_defect,stranger_recip,friend_defect,friend_recip\n');
+
+for s = 1:length(sublist)
+    try
+        [onsets, trial_type, RT, trust_value] = deal([]);
+        for r = 0:1
+            input = fullfile(rawdata, ['sub-', num2str(sublist(s))], 'func', sprintf('sub-%d_task-trust_run-%d_events.tsv', sublist(s), r + 1));
+            infile = fullfile(input);
+            
+            % Check if the input file exists
+            if exist(infile, 'file')
+                fid_data = fopen(infile, 'r');
+                C = textscan(fid_data, '%f%f%s%f%s%s%d%d', 'Delimiter', '\t', 'HeaderLines', 1, 'EmptyValue', NaN);
+                fclose(fid_data);
+            else
+                fprintf('sub-%d -- Investment Game, Run %d: No data found.\n', sublist(s), r + 1);
+                continue;
+            end
+            
+            onsets = [onsets; C{1}];
+            trial_type = [trial_type; C{3}];
+            RT = [RT; C{4}];
+            trust_value = [trust_value; C{5}];
         
         % get friend trials and adjust for recip/defect on previous trial
         friend_trials = trial_type(startsWith(trial_type(:),'outcome_friend'));
@@ -51,7 +65,7 @@ try
         %computer_values = RT(startsWith(trial_type(:),'outcome_computer'));
         computer_values(1) = [];
         
-    end
+
     
     output.computer_defect = std(computer_values(endsWith(computer_trials(:),'defect')));
     output.computer_recip = std(computer_values(endsWith(computer_trials(:),'recip')));
@@ -60,7 +74,15 @@ try
     output.stranger_recip = std(stranger_values(endsWith(stranger_trials(:),'recip')));
     
     output.friend_defect = std(friend_values(endsWith(friend_trials(:),'defect')));
-    output.friend_recip = std(friend_values(endsWith(friend_trials(:),'recip')));
-catch ME
-    %keyboard
+    output.friend_recip = std(friend_values(endsWith(friend_trials(:),'recip'))); 
+
+        end
+
+        % Write data for the current subject to the output file
+        fprintf(fid, 'sub-%d,%f,%f,%f,%f,%f,%f\n', sublist(s), output.computer_defect, output.computer_recip, output.stranger_defect, output.stranger_recip, output.friend_defect, output.friend_recip);
+
+    end
 end
+
+% Close the output file
+fclose(fid);
