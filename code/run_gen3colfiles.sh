@@ -1,9 +1,36 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+# this script will convert your BIDS *events.tsv files into the 3-col format for FSL
+# it relies on Tom Nichols' converter, which we store locally under /data/tools
+# https://github.com/bids-standard/bidsutils
+
+# To do:
+# 0) currently only works for sharedreward following srndna-data model
+# 1) make general for all tasks? not sure that is preferred since task leaders need to be responsible for their tasks
+# 2) add parametric modulators?
+# 3) log missing inputs?
+# 4) zero padding for run number. fix at heudiconv conversion
 
 
-for sublist in 10317 10369 10402 10418 10462 10478 10486 10529 10541 10572 10581 10584 10585 10589 10590 10596 10603 10606 10608 10617 10636 10638 10640 10641 10642 10644 10647 10649 10652 10656 10657 10659 10663 10668 10673 10674 10677 10685 10690 10691 10700 10701 10713 10716 10718 10720 10723 10741 10748 10767 10770 10774 10777 10781 10783 10785 10794 10800 10801 10802 10803 10804 10806 10807 10809 10812; do
-	set -- $sublist
-	sub=$1
-	run=$2
-	bash code/gen3colfiles.sh $sub $run
+scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+maindir="$(dirname "$scriptdir")"
+baseout=/ZPOOL/data/projects/rf1-sra-socdoors/derivatives/fsl/EVFiles
+if [ ! -d ${baseout} ]; then
+  mkdir -p $baseout
+fi
+
+sub=$1
+
+for task in trust; do
+	for run in 1; do
+  			input=/ZPOOL/data/projects/rf1-sra/stimuli/Scan-Social_Doors/data/${sub}/sub-${sub}_task-${task}_run-${run}_events.tsv
+  			output=${baseout}/sub-${sub}/${task}
+			mkdir -p $output
+  			if [ -e $input ]; then
+    			bash ${scriptdir}/BIDSto3col.sh $input ${output}/
+  			else
+    		echo "PATH ERROR: cannot locate ${input}."
+    		continue
+  			fi
+	done
 done
