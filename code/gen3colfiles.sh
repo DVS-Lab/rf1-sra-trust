@@ -21,6 +21,7 @@ for run in 1 2; do
   if [ -e $input ]; then
     bash /ZPOOL/data/tools/BIDSto3col.sh $input ${output}/run-${run}
   else
-    echo "PATH ERROR: cannot locate ${input}."
+  echo "PATH ERROR: cannot locate ${input}."
+  continue
   fi
 done
