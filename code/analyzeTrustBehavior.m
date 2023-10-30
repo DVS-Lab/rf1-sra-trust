@@ -67,14 +67,14 @@ for s = 1:length(sublist)
         
 
     
-    output.computer_defect = std(computer_values(endsWith(computer_trials(:),'defect')));
-    output.computer_recip = std(computer_values(endsWith(computer_trials(:),'recip')));
+    output.computer_defect = mean(computer_values(endsWith(computer_trials(:),'defect')));
+    output.computer_recip = mean(computer_values(endsWith(computer_trials(:),'recip')));
     
-    output.stranger_defect = std(stranger_values(endsWith(stranger_trials(:),'defect')));
-    output.stranger_recip = std(stranger_values(endsWith(stranger_trials(:),'recip')));
+    output.stranger_defect = mean(stranger_values(endsWith(stranger_trials(:),'defect')));
+    output.stranger_recip = mean(stranger_values(endsWith(stranger_trials(:),'recip')));
     
-    output.friend_defect = std(friend_values(endsWith(friend_trials(:),'defect')));
-    output.friend_recip = std(friend_values(endsWith(friend_trials(:),'recip'))); 
+    output.friend_defect = mean(friend_values(endsWith(friend_trials(:),'defect')));
+    output.friend_recip = mean(friend_values(endsWith(friend_trials(:),'recip'))); 
 
         end
 
