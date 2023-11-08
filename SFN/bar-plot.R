@@ -4,6 +4,13 @@ library(readxl)   # For reading Excel files
 
 data <- read_xlsx("/Users/avidachs/Documents/GitHub/rf1-sra-trust/SFN/covariates/Trust_Full_Covariates.xlsx")
 
+
+#calculate the standard error
+data$se_ios_friend_score <- sd(data$ios_friend_score)
+data$se_ios_stranger_score <- sd(data$ios_stranger_score)
+data$se_ios_computer_score <- sd(data$ios_computer_score)
+
+# plot the data
 ggplot(data, aes(x = factor(1), y = ios_friend_score)) +
   geom_bar(stat = "identity", position = "dodge", fill = "blue") +
   geom_errorbar(aes(ymin = ios_friend_score - se_ios_friend_score, ymax = ios_friend_score + se_ios_friend_score), width = 0.2) +
