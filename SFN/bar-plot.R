@@ -1,22 +1,16 @@
+
 library(ggplot2)
-library(readxl)   # For reading Excel files
+library(readxl)
 
+# Read the data from the Excel file
+data <- read_xlsx("/Users/avidachs/Documents/GitHub/rf1-sra-trust/SFN/Trust Behavioral Analysis/IOS/IOS.xlsx")
 
-data <- read_xlsx("/Users/avidachs/Documents/GitHub/rf1-sra-trust/SFN/covariates/Trust_Full_Covariates.xlsx")
+# Check the column names in your data
+colnames(data)
 
-
-#calculate the standard error
-data$se_ios_friend_score <- sd(data$ios_friend_score)
-data$se_ios_stranger_score <- sd(data$ios_stranger_score)
-data$se_ios_computer_score <- sd(data$ios_computer_score)
-
-# plot the data
-ggplot(data, aes(x = factor(1), y = ios_friend_score)) +
-  geom_bar(stat = "identity", position = "dodge", fill = "blue") +
-  geom_errorbar(aes(ymin = ios_friend_score - se_ios_friend_score, ymax = ios_friend_score + se_ios_friend_score), width = 0.2) +
-  geom_bar(aes(x = factor(2), y = ios_stranger_score), stat = "identity", position = "dodge", fill = "green") +
-  geom_errorbar(aes(x = factor(2), ymin = ios_stranger_score - se_ios_stranger_score, ymax = ios_stranger_score + se_ios_stranger_score), width = 0.2) +
-  geom_bar(aes(x = factor(3), y = ios_computer_score), stat = "identity", position = "dodge", fill = "red") +
-  geom_errorbar(aes(x = factor(3), ymin = ios_computer_score - se_ios_computer_score, ymax = ios_computer_score + se_ios_computer_score), width = 0.2) +
-  labs(title = "Bar Graph with Error Bars", x = NULL, y = "Scores") +
+# Create a bar plot with error bars
+ggplot(data, aes(x = Friend)) +
+  geom_bar(aes(y = x), stat = "identity", fill = "lightblue", width = 0.5) +
+  geom_errorbar(aes(ymin = x - SE, ymax = x + SE), width = 0.2) +
+  labs(x = "Groups", y = "Mean", title = "Mean and Standard Error Bar Plot") +
   theme_minimal()
