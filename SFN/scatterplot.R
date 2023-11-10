@@ -3,18 +3,18 @@ library(ggplot2)
 library(broom)
 
 # Read the data from the Excel file
-file_path <- "/Users/avidachs/Documents/GitHub/rf1-sra-trust/SFN/Trust Behavioral Analysis/OAFEM/oafemScatter.xlsx"
+file_path <- "/Users/avidachs/Documents/GitHub/rf1-sra-trust/SFN/Trust Behavioral Analysis/trust behavior/trustBehavior.csv"
 data <- read_excel(file_path)
 
 # Fit a linear model
-lm_model <- lm(fc_ios ~ age, data)
+lm_model <- lm(fs_recip ~ age, data)
 
 # Create the scatterplot with a line of best fit and error bars
-ggplot(data, aes(x = age, y = fc_ios)) +
+ggplot(data, aes(x = age, y = fs_recip)) +
   geom_point() +
   stat_smooth(method = "lm", formula = y ~ x, color = "blue", se = TRUE, linetype = "dotted") +
   labs(title = "Scatterplot",
        x = "age",
-       y = "IOS F-C")
+       y = "fs_recip")
 
 summary(lm_model)
