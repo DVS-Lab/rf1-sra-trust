@@ -7,14 +7,14 @@ file_path <- "/Users/avidachs/Documents/GitHub/rf1-sra-trust/SFN/Trust Behaviora
 data <- read_excel(file_path)
 
 # Fit a linear model
-lm_model <- lm(oafem ~ fc_ios, data)
+lm_model <- lm(fc_ios ~ age, data)
 
 # Create the scatterplot with a line of best fit and error bars
-ggplot(data, aes(x = fc_ios, y = oafem)) +
+ggplot(data, aes(x = age, y = fc_ios)) +
   geom_point() +
   stat_smooth(method = "lm", formula = y ~ x, color = "blue", se = TRUE, linetype = "dotted") +
   labs(title = "Scatterplot",
-       x = "IOS F-C",
-       y = "OAFEM")
+       x = "age",
+       y = "IOS F-C")
 
 summary(lm_model)
