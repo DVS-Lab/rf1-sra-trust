@@ -3,7 +3,7 @@ library(ggplot2)
 library(readxl)
 
 # Read the data from the Excel file
-data <- read_xlsx("/Users/avidachs/Documents/GitHub/rf1-sra-trust/SFN/Trust Behavioral Analysis/IOS/IOS.xlsx")
+data <- read.csv("/Users/avidachs/Documents/GitHub/rf1-sra-trust/SFN/covariates/IOS.csv")
 
 # Check the column names in your data
 colnames(data)
