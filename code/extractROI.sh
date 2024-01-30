@@ -8,18 +8,23 @@ maindir="$(dirname "$scriptdir")"
 # ECN-Insula
 
 # ROI name and other path information
-for TYPE in melodic-nppi-dmn melodic-nppi-ecn; do
-	for ROI in func_ECN-insula func_DMN-tpj; do
+for TYPE in act; do
+	for ROI in seed-VS; do
 		MASK=${maindir}/masks/${ROI}.nii.gz
 		TASK=trust
-		outputdir=${maindir}/derivatives/imaging
+		outputdir=${maindir}/derivatives/imaging_plots
 		mkdir -p $outputdir
 
-		for COPENUM in 4 5 6 7 8 9; do
-			cnum_padded=`zeropad ${COPENUM} 2`
-			MAINOUTPUT=${maindir}/derivatives/fsl/L3_model-01_task-trust_n48_flame1+2_retest
-			DATA=`ls -1 ${MAINOUTPUT}/L3_task-${TASK}_type-${TYPE}_cnum-${cnum_padded}_*onegroup_new.gfeat/cope1.feat/filtered_func_data.nii.gz`
-			fslmeants -i $DATA -o ${outputdir}/${ROI}_type-${TYPE}_cope-${cnum_padded}.txt -m ${MASK}
+		for model in age; do 
+			for copeinfo in "4 C_def" "5 C_rec" "6 F_def" "7 F_rec" "8 S_def" "9 S_rec" "10 rec-def" "11 face" "12 rec-def_F-S" "13 F-S" "14 F-C" "15 S-C" "16 rec_SocClose" "17 def_SocClose" "18 rec-def_SocClose"; do
+				# split copeinfo variable
+				set -- $copeinfo
+				copenum=$1
+				copename=$2
+				MAINOUTPUT=${maindir}/derivatives/fsl/L3act/L3_model-${model}_task-trust_n62_flame1
+				DATA=`ls -1 ${MAINOUTPUT}/L3_task-${TASK}_${TYPE}_cnum-${copenum}_cname-${copename}_twogroup.gfeat/cope1.feat/filtered_func_data.nii.gz`
+				fslmeants -i $DATA -o ${outputdir}/${ROI}_model-${model}_type-${TYPE}_cope-${copenum}_cname-${copename}.txt -m ${MASK}
+			done
 		done
 	done
 done

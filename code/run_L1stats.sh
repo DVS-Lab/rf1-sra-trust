@@ -7,9 +7,9 @@ nruns=2
 
 #for task in socialdoors; do
 for task in trust; do
-	for ppi in 0 "VS"; do #"VS"; do #"VS_thr5" "dmn"; do # 0 "VS_thr5" "dmn"; do # putting 0 first will indicate "activation"
-		#for sub in 10317; do -- use this line for testing with one subject 
-		for sub in `cat ${basedir}/code/newsubs.txt`; do
+	for ppi in "NAcc-bin"; do #"VS"; do #"VS_thr5" "dmn"; do # 0 "VS_thr5" "dmn"; do # putting 0 first will indicate "activation"
+		for sub in 10529 10541 10572 10581 10584; do #-- use this line for testing with one subject 
+		#for sub in `cat ${basedir}/code/newsubs.txt`; do
 	  		for run in `seq $nruns`; do
 
 		  		# Manages the number of jobs and cores
