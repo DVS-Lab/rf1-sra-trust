@@ -12,11 +12,11 @@ source $FSLDIR/etc/fslconf/fsl.sh
 cd $PBS_O_WORKDIR
 
 # ensure paths are correct
-maindir=~/work/rf1-sra-data #this should be the only line that has to change if the rest of the script is set up correctly
-basedir=~/work/rf1-sra-trust
-scriptdir=$basedir/code
-bidsdir=$maindir/bids
-logdir=$maindir/logs
+rf1datadir=~/work/rf1-sra-data #this should be the only line that has to change if the rest of the script is set up correctly
+projectdir=~/work/rf1-sra-trust
+scriptdir=$projectdir/code
+bidsdir=$rf1datadir/bids
+logdir=$rf1datadir/logs
 mkdir -p $logdir
 
 rm -f $logdir/cmd_feat_${PBS_JOBID}.txt
@@ -28,21 +28,21 @@ sm=5
 
 # need to change this to a more targetted list of subjects
 # also should only run this if the inputs exist. add if statements.
-for sub in `cat ${basedir}/code/sublist_all.txt`; do
+for sub in `cat ${projectdir}/code/sublist_all.txt`; do
 	for run in 1 2; do
 
 		# set inputs and general outputs (should not need to chage across studies in Smith Lab)
-		MAINOUTPUT=${basedir}/derivatives/fsl/sub-${sub}
+		MAINOUTPUT=${projectdir}/derivatives/fsl/sub-${sub}
 		mkdir -p $MAINOUTPUT
-		DATA=${maindir}/derivatives/fmriprep/sub-${sub}/func/sub-${sub}_task-${TASK}_run-${run}_space-MNI152NLin6Asym_desc-preproc_bold.nii.gz
-		CONFOUNDEVS=${maindir}/derivatives/fsl/confounds/sub-${sub}/sub-${sub}_task-${TASK}_run-${run}_desc-fslConfounds.tsv
+		DATA=${rf1datadir}/derivatives/fmriprep/sub-${sub}/func/sub-${sub}_task-${TASK}_run-${run}_space-MNI152NLin6Asym_desc-preproc_bold.nii.gz
+		CONFOUNDEVS=${rf1datadir}/derivatives/fsl/confounds/sub-${sub}/sub-${sub}_task-${TASK}_run-${run}_desc-fslConfounds.tsv
 		if [ ! -e $CONFOUNDEVS ]; then
-			echo "missing: $CONFOUNDEVS " >> ${basedir}/re-runL1.log
+			echo "missing: $CONFOUNDEVS " >> ${projectdir}/re-runL1.log
 			continue # exiting/continuing to ensure nothing gets run without confounds
 		fi
-		EVDIR=${basedir}/derivatives/fsl/EVfiles/sub-${sub}/${TASK}/run-${run} # don't zeropad here since only 2 runs at most
-		if [ ! -d ${basedir}/derivatives/fsl/EVfiles/sub-${sub}/${TASK} ]; then
-			echo "missing EVfiles: $EVDIR " >> ${basedir}/re-runL1.log
+		EVDIR=${projectdir}/derivatives/fsl/EVfiles/sub-${sub}/${TASK}/run-${run} # don't zeropad here since only 2 runs at most
+		if [ ! -d ${projectdir}/derivatives/fsl/EVfiles/sub-${sub}/${TASK} ]; then
+			echo "missing EVfiles: $EVDIR " >> ${projectdir}/re-runL1.log
 			continue # skip these since some won't exist yet
 		fi
 
@@ -62,7 +62,7 @@ for sub in `cat ${basedir}/code/sublist_all.txt`; do
 			if [ -e ${OUTPUT}.feat/cluster_mask_zstat1.nii.gz ]; then
 				continue
 			else
-				echo "missing: $OUTPUT " >> ${basedir}/re-runL1.log
+				echo "missing: $OUTPUT " >> ${projectdir}/re-runL1.log
 				rm -rf ${OUTPUT}.feat
 			fi
 
@@ -73,7 +73,7 @@ for sub in `cat ${basedir}/code/sublist_all.txt`; do
 				continue
 			fi
 			for net in `seq 0 9`; do
-				NET=${maindir}/masks/melodic-114_smith09_net${net}.nii.gz
+				NET=${projectdir}/masks/melodic-114_smith09_net${net}.nii.gz
 				TSFILE=${MAINOUTPUT}/ts_task-${TASK}_melodic-114_net${net}_nppi-${ppi}_run-${run}.txt
 				fsl_glm -i $DATA -d $NET -o $TSFILE --demean -m $MASK
 				eval INPUT${net}=$TSFILE
@@ -91,7 +91,7 @@ for sub in `cat ${basedir}/code/sublist_all.txt`; do
 			fi
 
 			# create template and run analyses
-			ITEMPLATE=${basedir}/templates/L1_task-${TASK}_model-1_type-nppi.fsf
+			ITEMPLATE=${projectdir}/templates/L1_task-${TASK}_model-1_type-nppi.fsf
 			OTEMPLATE=${MAINOUTPUT}/L1_task-${TASK}_model-1_seed-${ppi}_run-${run}.fsf
 			sed -e 's@OUTPUT@'$OUTPUT'@g' \
 			-e 's@DATA@'$DATA'@g' \
@@ -126,12 +126,12 @@ for sub in `cat ${basedir}/code/sublist_all.txt`; do
 			if [ -e ${OUTPUT}.feat/cluster_mask_zstat1.nii.gz ]; then
 				continue
 			else
-				echo "missing: $OUTPUT " >> ${basedir}/re-runL1.log
+				echo "missing: $OUTPUT " >> ${projectdir}/re-runL1.log
 				rm -rf ${OUTPUT}.feat
 			fi
 
 			# create template and run analyses
-			ITEMPLATE=${basedir}/templates/L1_task-${TASK}_model-1_type-${TYPE}.fsf
+			ITEMPLATE=${projectdir}/templates/L1_task-${TASK}_model-1_type-${TYPE}.fsf
 			OTEMPLATE=${MAINOUTPUT}/L1_sub-${sub}_task-${TASK}_model-1_seed-${ppi}_run-${run}.fsf
 			if [ "$ppi" == "0" ]; then
 				sed -e 's@OUTPUT@'$OUTPUT'@g' \
@@ -144,7 +144,7 @@ for sub in `cat ${basedir}/code/sublist_all.txt`; do
 				<$ITEMPLATE> $OTEMPLATE
 			else
 				PHYS=${MAINOUTPUT}/ts_task-${TASK}_mask-${ppi}_run-${run}.txt
-				MASK=${maindir}/masks/seed-${ppi}.nii.gz
+				MASK=${rf1datadir}/masks/seed-${ppi}.nii.gz
 				fslmeants -i $DATA -o $PHYS -m $MASK
 				sed -e 's@OUTPUT@'$OUTPUT'@g' \
 				-e 's@DATA@'$DATA'@g' \
