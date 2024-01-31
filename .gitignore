@@ -137,7 +137,7 @@ dmypy.json
 
 # imaging output
 bids/**/*.nii.gz
-derivatives/fsl
+derivatives/fsl/
 derivatives/fmriprep/**/*.nii.gz
 derivatives/fmriprep/*/anat
 derivatives/fmriprep/*/figures
