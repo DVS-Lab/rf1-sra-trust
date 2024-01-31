@@ -14,7 +14,7 @@
 
 scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 maindir="$(dirname "$scriptdir")"
-baseout=/ZPOOL/data/projects/rf1-sra-socdoors/derivatives/fsl/EVFiles
+baseout=/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/EVFiles
 if [ ! -d ${baseout} ]; then
   mkdir -p $baseout
 fi
@@ -23,14 +23,16 @@ sub=$1
 
 for task in trust; do
 	for run in 1; do
-  			input=/ZPOOL/data/projects/rf1-sra/stimuli/Scan-Social_Doors/data/${sub}/sub-${sub}_task-${task}_run-${run}_events.tsv
-  			output=${baseout}/sub-${sub}/${task}
+		for sub in `cat /ZPOOL/data/projects/rf1-sra-trust/code/sublist_all.txt`; do
+  input=/ZPOOL/data/projects/rf1-sra-data/bids/sub-${sub}/func/sub-${sub}_task-trust_run-${run}_events.tsv
+  output=${baseout}/sub-${sub}/trust
 			mkdir -p $output
   			if [ -e $input ]; then
-    			bash ${scriptdir}/BIDSto3col.sh $input ${output}/
+    			bash /ZPOOL/data/tools/BIDSto3col.sh $input ${output}/run-${run}
   			else
     		echo "PATH ERROR: cannot locate ${input}."
     		continue
   			fi
+		done
 	done
 done
