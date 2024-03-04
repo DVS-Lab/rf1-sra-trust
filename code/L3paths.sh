@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#Add flag for activation/ppi {type} and model number
+
 # Path to the subject list file
 sublist="/ZPOOL/data/projects/rf1-sra-trust/code/sublist_all.txt"
 

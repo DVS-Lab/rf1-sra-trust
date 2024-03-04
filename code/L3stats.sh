@@ -19,7 +19,7 @@ maindir="$(dirname "$scriptdir")"
 
 # study-specific inputs and general output folder
 task=trust
-N=62
+N=87
 copenum=$1
 copenum_thresh_randomise=10 # actual contrasts start with cope10 (rec > def). no need to do randomise main effects (e.g., rec > nothing/fixation/baseline)
 copename=$2
