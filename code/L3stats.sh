@@ -20,25 +20,26 @@ maindir="$(dirname "$scriptdir")"
 # study-specific inputs and general output folder
 task=trust
 N=87
+model=4
 copenum=$1
 copenum_thresh_randomise=10 # actual contrasts start with cope10 (rec > def). no need to do randomise main effects (e.g., rec > nothing/fixation/baseline)
 copename=$2
 REPLACEME=$3 # this defines the parts of the path that differ across analyses
-MAINOUTPUT=${maindir}/derivatives/fsl/L3act/L3_model-age_task-${task}_n${N}_flame1
+MAINOUTPUT=${maindir}/derivatives/fsl/L3act/L3_model-${model}_task-${task}_n${N}_flame1
 mkdir -p $MAINOUTPUT
 
 
 #### --- Two groups ------------------------------
 # set outputs and check for existing
 cnum_pad=`zeropad ${copenum} 2`
-OUTPUT=${MAINOUTPUT}/L3_task-${task}_${REPLACEME}_cnum-${cnum_pad}_cname-${copename}_twogroup
+OUTPUT=${MAINOUTPUT}/L3_task-${task}_${REPLACEME}_cnum-${cnum_pad}_cname-${copename}_onegroup
 
 
 	echo "re-doing: ${OUTPUT}" >> re-runL3.log
 	rm -rf ${OUTPUT}.gfeat
 
 	# create template and run FEAT analyses
-	ITEMPLATE=${maindir}/templates/L3_template_n${N}_${task}_modelage_onegroup.fsf
+	ITEMPLATE=${maindir}/templates/L3_template_n${N}_${task}_model${model}_onegroup.fsf
 	OTEMPLATE=${MAINOUTPUT}/L3_task-${task}_${REPLACEME}_copenum-${copenum}_onegroup.fsf
 	sed -e 's@OUTPUT@'$OUTPUT'@g' \
 	-e 's@COPENUM@'$copenum'@g' \
