@@ -11,11 +11,13 @@ scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 datadir=/ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep
 task=trust
 
+echo -e "sub\tmean\tmax\tmeanVS\t" 
+
 # Define a function to process a single subject
 process_subject() {
     sub=$1
     cd "$datadir/sub-${sub}/func" || return
-    for i in sub-${sub}_task-${task}*_bold.nii.gz; do
+    for i in sub-${sub}_task-${task}*_echo-*_bold.nii.gz; do
         fslmaths "$i" -Tmean tmp_mean
         fslmaths "$i" -Tstd tmp_std
         fslmaths tmp_mean -div tmp_std tmp_tsnr
@@ -23,7 +25,7 @@ process_subject() {
         max=$(fslstats thr_tmp_tsnr -R | awk '{ print $2 }')
         mean=$(fslstats thr_tmp_tsnr -M)
         vsmean=$(fslstats thr_tmp_tsnr -k /ZPOOL/data/projects/rf1-sra-trust/masks/seed-VS_preproc.nii.gz -M)
-        echo -e "$i\t mean tsnr: $mean\t max tsnr: $max\t meanVS tsnr: $vsmean"
+        echo -e "$i\t $mean\t $max\t $vsmean"
     done
 }
 
