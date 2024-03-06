@@ -22,6 +22,7 @@ process_subject() {
         fslmaths tmp_tsnr -thr 2 thr_tmp_tsnr
         max=$(fslstats thr_tmp_tsnr -R | awk '{ print $2 }')
         mean=$(fslstats thr_tmp_tsnr -M)
+        vsmean=$(fslstats thr_tmp_tsnr -k /ZPOOL/data/projects/rf1-sra-trust/masks/seed-VS.nii.gz -M)
         echo -e "$i\t mean tsnr: $mean\t max tsnr: $max"
     done
 }
