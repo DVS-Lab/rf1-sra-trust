@@ -2,7 +2,7 @@ library(ggplot2)
 library(dplyr)
 
 # Read the data from the .tsv file
-df <- read.delim("/Users/coopersharp/Documents/GitHub/rf1-sra-trust/code/tsnr_trust.tsv", header = TRUE, sep = "\t")
+df <- read.delim("/Users/coopersharp/Documents/GitHub/rf1-sra-trust/code/tsnr_trust_VS.tsv", header = TRUE, sep = "\t")
 df <- na.omit(df)
 
 # Extract echo number from 'sub' column
@@ -21,5 +21,11 @@ df <- na.omit(df)
 ggplot(df, aes(x = factor(echo), y = mean, fill = group, na.rm = TRUE)) +
   geom_bar(stat = "identity", position = "dodge") +
   labs(title = "Average tSNR by Echo and Flip Angle", x = "Echo", y = "Average tSNR", fill = "Flip Angle") +
-  scale_fill_manual(values = c("new flip angle" = "skyblue2", "old flip angle" = "lightgreen")) +
-  theme_minimal()
+  scale_fill_manual(values = c("new flip angle" = "skyblue2", size = 18, "old flip angle" = "lightgreen")) +
+  theme(plot.title = element_text(hjust = 0.5, size = 18, face = "italic"), 
+        axis.title.x = element_text(face = "bold", size = 18), 
+        axis.title.y = element_text(face = "bold", size = 18), 
+        legend.title = element_text(face = "bold", size = 18), 
+        legend.text = element_text(size = 14),
+        axis.text.x = element_text(size = 18, color = "black", face = "bold"),
+        axis.text.y = element_text(size = 18, color = "black"))
