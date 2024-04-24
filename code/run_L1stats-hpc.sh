@@ -9,7 +9,7 @@ mapfile -t myArray < ${scriptdir}/sublist_hpc.txt
 
 
 # grab the first 10 elements
-ntasks=2
+ntasks=1
 counter=0
 for task in trust; do
 	for ppi in 0 "VS"; do #"VS_thr5" "dmn"; do # 0 "VS_thr5" "dmn"; do # putting 0 first will indicate "activation"
