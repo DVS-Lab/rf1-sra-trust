@@ -13,7 +13,7 @@ ntasks=10
 counter=0
 for task in trust; do
 	for ppi in 0 "VS"; do #"VS_thr5" "dmn"; do # 0 "VS_thr5" "dmn"; do # putting 0 first will indicate "activation"
-		for run in 1 2; do
+		#for run in 1 2; do
 		
 		while [ $counter -lt ${#myArray[@]} ]; do
 			subjects=${myArray[@]:$counter:$ntasks}
@@ -26,4 +26,4 @@ for task in trust; do
 	  		sleep 1s
 			done	  	
 	  	done
-	done
+	#done

@@ -28,7 +28,7 @@ sm=5
 
 # need to change this to a more targetted list of subjects
 # also should only run this if the inputs exist. add if statements.
-for sub in `cat ${projectdir}/code/sublist_all.txt`; do
+for sub in ${subjects[@]}; do
 	for run in 1 2; do
 
 		# set inputs and general outputs (should not need to chage across studies in Smith Lab)
