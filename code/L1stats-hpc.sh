@@ -4,7 +4,7 @@
 #PBS -q normal
 #PBS -m ae
 #PBS -M cooper.sharp@temple.edu
-#PBS -l nodes=1:ppn=15
+#PBS -l nodes=1:ppn=10
 
 # load modules and go to workdir
 module load fsl/6.0.2
@@ -28,13 +28,13 @@ sm=5
 
 # need to change this to a more targetted list of subjects
 # also should only run this if the inputs exist. add if statements.
-for sub in `cat ${projectdir}/code/sublist_hpc.txt`; do
+for sub in `cat ${projectdir}/code/sublist_all.txt`; do
 	for run in 1 2; do
 
 		# set inputs and general outputs (should not need to chage across studies in Smith Lab)
 		MAINOUTPUT=${projectdir}/derivatives/fsl/sub-${sub}
 		mkdir -p $MAINOUTPUT
-		DATA=${rf1datadir}/derivatives/fmriprep/sub-${sub}/func/sub-${sub}_task-${TASK}_run-${run}_space-MNI152NLin6Asym_desc-preproc_bold.nii.gz
+		DATA=${rf1datadir}/derivatives/fmriprep/sub-${sub}/sub-${sub}/func/sub-${sub}_task-${TASK}_run-${run}_space-MNI152NLin6Asym_desc-preproc_bold.nii.gz
 		CONFOUNDEVS=${rf1datadir}/derivatives/fsl/confounds/sub-${sub}/sub-${sub}_task-${TASK}_run-${run}_desc-fslConfounds.tsv
 		if [ ! -e $CONFOUNDEVS ]; then
 			echo "missing: $CONFOUNDEVS " >> ${projectdir}/re-runL1.log
