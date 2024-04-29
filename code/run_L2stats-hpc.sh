@@ -2,7 +2,7 @@
 
 # ensure paths are correct
 maindir=~/work/rf1-sra-trust #this should be the only line that has to change if the rest of the script is set up correctly
-scriptdir=$trustdir/code
+scriptdir=$maindir/code
 
 
 mapfile -t myArray < sublist_all.txt
@@ -22,7 +22,7 @@ for task in trust; do
 			qsub -v subjects="${subjects[@]}" L2stats-hpc.sh
 		done
 
-			bash $sub $type &
+			#bash $sub $type &
 	  		sleep 1s
 			done	  	
 	  	done

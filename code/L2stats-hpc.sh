@@ -23,8 +23,8 @@ scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 maindir="$(dirname "$scriptdir")"
 
 # setting inputs and common variables
-sub=$1
-type=$2
+#sub=$1
+type=act
 sm=5 # edit if necessary
 MAINOUTPUT=/home/tun31934/work/rf1-sra-trust/derivatives/fsl/sub-${sub}
 model=1
@@ -32,6 +32,8 @@ NCOPES=18
 
 
 for sub in ${subjects[@]}; do
+
+MAINOUTPUT=/home/tun31934/work/rf1-sra-trust/derivatives/fsl/sub-${sub}
 	
 	# ppi has more contrasts than act (phys), so need a different L2 template
 	if [ "${type}" == "act" ]; then
