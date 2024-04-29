@@ -23,7 +23,7 @@ for task in trust; do
 			qsub -v subjects="${subjects[@]}" L2stats-hpc.sh
 		done
 
-			bash $SCRIPTNAME $sub $type &
+			bash $sub $type &
 	  		sleep 1s
 			done	  	
 	  	done
