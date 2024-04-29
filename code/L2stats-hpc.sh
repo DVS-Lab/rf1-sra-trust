@@ -24,17 +24,17 @@ maindir="$(dirname "$scriptdir")"
 sub=$1
 type=$2
 sm=5 # edit if necessary
-MAINOUTPUT=${maindir}/derivatives/fsl/sub-${sub}
+MAINOUTPUT=/home/tun31934/work/rf1-sra-trust/derivatives/fsl/sub-${sub}
 model=1
 NCOPES=18
 
 
 # ppi has more contrasts than act (phys), so need a different L2 template
 if [ "${type}" == "act" ]; then
-	ITEMPLATE=${maindir}/templates/L2_task-trust_model-${model}_type-act_nruns-2.fsf
+	ITEMPLATE=/home/tun31934/work/rf1-sra-trust/templates/L2_task-trust_model-${model}_type-act_nruns-2.fsf
 	NCOPES=${NCOPES}
 else
-	ITEMPLATE=${maindir}/templates/L2_task-trust_model-${model}_type-ppi_nruns-2.fsf
+	ITEMPLATE=/home/tun31934/work/rf1-sra-trust/templates/L2_task-trust_model-${model}_type-ppi_nruns-2.fsf
 	let NCOPES=${NCOPES}+1 # add 1 since we tend to only have one extra contrast for PPI
 fi
 INPUT1=${MAINOUTPUT}/L1_task-trust_model-${model}_type-${type}_run-1_sm-${sm}.feat
