@@ -4,7 +4,7 @@
 #PBS -q normal
 #PBS -m ae
 #PBS -M cooper.sharp@temple.edu
-#PBS -l nodes=2:ppn=14
+#PBS -l nodes=1:ppn=28
 
 # load modules and go to workdir
 module load fsl/6.0.2
@@ -163,5 +163,18 @@ for sub in ${subjects[@]}; do
 
 	done
 done
+
+# fix registration as per NeuroStars post:
+# https://neurostars.org/t/performing-full-glm-analysis-with-fsl-on-the-bold-images-preprocessed-by-fmriprep-without-re-registering-the-data-to-the-mni-space/784/3
+mkdir -p ${OUTPUT}.feat/reg
+ln -s $FSLDIR/etc/flirtsch/ident.mat ${OUTPUT}.feat/reg/example_func2standard.mat
+ln -s $FSLDIR/etc/flirtsch/ident.mat ${OUTPUT}.feat/reg/standard2example_func.mat
+ln -s ${OUTPUT}.feat/mean_func.nii.gz ${OUTPUT}.feat/reg/standard.nii.gz
+
+# delete unused files
+rm -rf ${OUTPUT}.feat/stats/res4d.nii.gz
+rm -rf ${OUTPUT}.feat/stats/corrections.nii.gz
+rm -rf ${OUTPUT}.feat/stats/threshac1.nii.gz
+#rm -rf ${OUTPUT}.feat/filtered_func_data.nii.gz
 
 torque-launch -p $logdir/chk_feat_${PBS_JOBID}.txt $logdir/cmd_feat_${PBS_JOBID}.txt
