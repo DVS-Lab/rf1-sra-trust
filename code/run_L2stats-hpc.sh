@@ -15,7 +15,7 @@ for task in trust; do
 	for type in "act"; do #"VS_thr5" "dmn"; do # 0 "VS_thr5" "dmn"; do # putting 0 first will indicate "activation"
 		#for run in 1 2; do
 		
-		SCRIPTNAME=${scriptdir}/L2stats.sh
+		SCRIPTNAME=${scriptdir}/L2stats-hpc.sh
 		while [ $counter -lt ${#myArray[@]} ]; do
 			subjects=${myArray[@]:$counter:$ntasks}
 			echo $subjects

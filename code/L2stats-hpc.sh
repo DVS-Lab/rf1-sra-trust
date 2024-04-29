@@ -1,9 +1,9 @@
 #!/bin/bash
 #PBS -l walltime=12:00:00
-#PBS -N L1stats-trust-all
+#PBS -N L2stats-trust
 #PBS -q normal
 #PBS -m ae
-#PBS -M 
+#PBS -M cooper.sharp@temple.edu
 #PBS -l nodes=7:ppn=28
 
 # load modules and go to workdir
