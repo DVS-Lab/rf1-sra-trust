@@ -4,7 +4,7 @@
 #PBS -q normal
 #PBS -m ae
 #PBS -M cooper.sharp@temple.edu
-#PBS -l nodes=1:ppn=28
+#PBS -l nodes=1:ppn=22
 
 # load modules and go to workdir
 module load fsl/6.0.2
@@ -161,9 +161,6 @@ for sub in ${subjects[@]}; do
 		# add feat cmd to submission script
 		echo feat $OTEMPLATE >> $logdir/cmd_feat_${PBS_JOBID}.txt
 
-	done
-done
-
 # fix registration as per NeuroStars post:
 # https://neurostars.org/t/performing-full-glm-analysis-with-fsl-on-the-bold-images-preprocessed-by-fmriprep-without-re-registering-the-data-to-the-mni-space/784/3
 mkdir -p ${OUTPUT}.feat/reg
@@ -176,5 +173,8 @@ rm -rf ${OUTPUT}.feat/stats/res4d.nii.gz
 rm -rf ${OUTPUT}.feat/stats/corrections.nii.gz
 rm -rf ${OUTPUT}.feat/stats/threshac1.nii.gz
 #rm -rf ${OUTPUT}.feat/filtered_func_data.nii.gz
+
+	done
+done
 
 torque-launch -p $logdir/chk_feat_${PBS_JOBID}.txt $logdir/cmd_feat_${PBS_JOBID}.txt
