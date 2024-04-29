@@ -4,7 +4,7 @@
 #PBS -q normal
 #PBS -m ae
 #PBS -M cooper.sharp@temple.edu
-#PBS -l nodes=1:ppn=10
+#PBS -l nodes=2:ppn=14
 
 # load modules and go to workdir
 module load fsl/6.0.2
