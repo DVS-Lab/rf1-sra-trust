@@ -69,6 +69,8 @@ for sub in ${subjects[@]}; do
 			rm -rf ${OUTPUT}.gfeat/cope${cope}.feat/var_filtered_func_data.nii.gz
 		done
 	fi
+	
+		echo feat $OTEMPLATE >> $logdir/cmd_feat_${PBS_JOBID}.txt
 
 done
 
