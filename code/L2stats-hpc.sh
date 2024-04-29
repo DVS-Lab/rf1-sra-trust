@@ -10,7 +10,9 @@
 module load fsl/6.0.2
 source $FSLDIR/etc/fslconf/fsl.sh
 cd $PBS_O_WORKDIR
+logdir=/home/tun31934/work/rf1-sra-trust/logs
 mkdir -p $logdir
+
 rm -f $logdir/cmd_feat_${PBS_JOBID}.txt
 touch $logdir/cmd_feat_${PBS_JOBID}.txt
 
