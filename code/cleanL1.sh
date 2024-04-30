@@ -22,15 +22,15 @@ for sub in `ls -1d ${maindir}/derivatives/fsl/sub-*`; do
 
 		# if network (ecn or dmn), do nppi; otherwise, do activation or seed-based ppi
 		if [ "$ppi" == "ecn" -o  "$ppi" == "dmn" ]; then
-			OUTPUT=${MAINOUTPUT}/L1_task-${TASK}_model-01_type-melodic-nppi-${ppi}_run-0${run}_sm-${sm}
+			OUTPUT=${MAINOUTPUT}/L1_task-${TASK}_model-1_type-melodic-nppi-${ppi}_run-${run}_sm-${sm}
 		else # otherwise, do activation and seed-based ppi
 			# set output based in whether it is activation or ppi
 			if [ "$ppi" == "0" ]; then
 				TYPE=act
-				OUTPUT=${MAINOUTPUT}/L1_task-${TASK}_model-1_type-${TYPE}_run-0${run}_sm-${sm}
+				OUTPUT=${MAINOUTPUT}/L1_task-${TASK}_model-1_type-${TYPE}_run-${run}_sm-${sm}
 			else
 				TYPE=ppi
-				OUTPUT=${MAINOUTPUT}/L1_task-${TASK}_model-1_type-${TYPE}_seed-${ppi}_run-0${run}_sm-${sm}
+				OUTPUT=${MAINOUTPUT}/L1_task-${TASK}_model-1_type-${TYPE}_seed-${ppi}_run-${run}_sm-${sm}
 			fi
 		fi
 
