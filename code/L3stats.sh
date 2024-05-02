@@ -19,8 +19,8 @@ maindir="$(dirname "$scriptdir")"
 
 # study-specific inputs and general output folder
 task=trust
-N=87
-model=4
+N=101
+model=age
 copenum=$1
 copenum_thresh_randomise=10 # actual contrasts start with cope10 (rec > def). no need to do randomise main effects (e.g., rec > nothing/fixation/baseline)
 copename=$2
@@ -39,7 +39,7 @@ OUTPUT=${MAINOUTPUT}/L3_task-${task}_${REPLACEME}_cnum-${cnum_pad}_cname-${copen
 	rm -rf ${OUTPUT}.gfeat
 
 	# create template and run FEAT analyses
-	ITEMPLATE=${maindir}/templates/L3_template_n${N}_${task}_model${model}_onegroup.fsf
+	ITEMPLATE=${maindir}/templates/L3_template_n${N}_${task}_model-${model}_onegroup.fsf
 	OTEMPLATE=${MAINOUTPUT}/L3_task-${task}_${REPLACEME}_copenum-${copenum}_onegroup.fsf
 	sed -e 's@OUTPUT@'$OUTPUT'@g' \
 	-e 's@COPENUM@'$copenum'@g' \
