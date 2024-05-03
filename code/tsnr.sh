@@ -9,15 +9,16 @@ scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 # Define the data directory
 datadir=/ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep
-task=trust
+tasks=("trust" "ugr" "sharedreward")
+
 
 #echo -e "sub\tmean\tmax\tmeanVS_run1\tmeanVS_run2\t"
 echo -e "sub\t mean_stan_run1\t mean_stan_run2\t mean_nat_run1\t mean_nat_run2\t max\t vsmean_run1\t vsmean_run2" 
 
 # Define a function to process a single subject
 process_subject() {
-    task=trust
     sub=$1
+    for task in "${tasks[@]}"; do
     cd "$datadir/sub-${sub}/func" || return
 
 
@@ -84,6 +85,7 @@ process_subject() {
         vsmean_run2=$(fslstats thr_tmp_tsnr -k /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/sub-${sub}_task-${task}_run-2_space-native_roi-vs_thr_mask.nii.gz -M)
         echo -e "$i\t $mean_stan_run1\t $mean_stan_run2\t $mean_nat_run1\t $mean_nat_run2\t $max\t $vsmean_run1\t $vsmean_run2"
     done
+   done
 }
 
 # Read the subject list and process subjects in parallel
