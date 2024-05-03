@@ -44,22 +44,22 @@ process_subject() {
     -n Linear \
     -o /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/sub-${sub}_task-${task}_run-2_space-native_roi-vs_mask.nii.gz
     
-        # Apply transformation using antsApplyTransforms for run-2
-    antsApplyTransforms \
-    -i /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/func/sub-${sub}_task-${task}_run-1_desc-brain_mask.nii.gz \
-    -r /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/func/sub-${sub}_task-${task}_run-1_part-mag_desc-coreg_boldref.nii.gz \
-    -t /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/anat/sub-${sub}_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.h5 \
-    -t [/ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/func/sub-${sub}_task-${task}_run-1_from-boldref_to-T1w_mode-image_desc-coreg_xfm.txt, 1] \
-    -n Linear \
-    -o /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/sub-${sub}_task-${task}_run-1_space-native_roi-wholebrain_mask.nii.gz
-    
-    antsApplyTransforms \
-	 -i /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/func/sub-${sub}_task-${task}_run-2_desc-brain_mask.nii.gz \
-    -r /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/func/sub-${sub}_task-${task}_run-2_part-mag_desc-coreg_boldref.nii.gz \
-    -t /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/anat/sub-${sub}_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.h5 \
-    -t [/ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/func/sub-${sub}_task-${task}_run-2_from-boldref_to-T1w_mode-image_desc-coreg_xfm.txt, 1] \
-    -n Linear \
-    -o /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/sub-${sub}_task-${task}_run-2_space-native_roi-wholebrain_mask.nii.gz
+#        # Apply transformation using antsApplyTransforms for run-2
+#    antsApplyTransforms \
+#    -i /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/func/sub-${sub}_task-${task}_run-1_desc-brain_mask.nii.gz \
+#    -r /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/func/sub-${sub}_task-${task}_run-1_part-mag_desc-coreg_boldref.nii.gz \
+#    -t /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/anat/sub-${sub}_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.h5 \
+#    -t [/ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/func/sub-${sub}_task-${task}_run-1_from-boldref_to-T1w_mode-image_desc-coreg_xfm.txt, 1] \
+#    -n Linear \
+#    -o /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/sub-${sub}_task-${task}_run-1_space-native_roi-wholebrain_mask.nii.gz
+#    
+#    antsApplyTransforms \
+#	 -i /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/func/sub-${sub}_task-${task}_run-2_desc-brain_mask.nii.gz \
+#    -r /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/func/sub-${sub}_task-${task}_run-2_part-mag_desc-coreg_boldref.nii.gz \
+#    -t /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/anat/sub-${sub}_from-MNI152NLin6Asym_to-T1w_mode-image_xfm.h5 \
+#    -t [/ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/func/sub-${sub}_task-${task}_run-2_from-boldref_to-T1w_mode-image_desc-coreg_xfm.txt, 1] \
+#    -n Linear \
+#    -o /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/sub-${sub}_task-${task}_run-2_space-native_roi-wholebrain_mask.nii.gz
         
     
     # Threshold and binarize the generated masks for both runs
@@ -67,8 +67,8 @@ process_subject() {
     fslmaths /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/sub-${sub}_task-${task}_run-2_space-native_roi-vs_mask.nii.gz -thr 0.5 -bin /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/sub-${sub}_task-${task}_run-2_space-native_roi-vs_thr_mask.nii.gz
 	 fslmaths /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/sub-${sub}_task-${task}_run-1_space-native_roi-wholebrain_mask.nii.gz -thr 0.5 -bin /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/sub-${sub}_task-${task}_run-1_space-native_roi-wholebrain_thr_mask.nii.gz    
     fslmaths /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/sub-${sub}_task-${task}_run-2_space-native_roi-wholebrain_mask.nii.gz -thr 0.5 -bin /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/sub-${sub}_task-${task}_run-2_space-native_roi-wholebrain_thr_mask.nii.gz    
-	 fslmaths /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/func/sub-${sub}_task-${task}_run-1_space-MNI152NLin6Asym_desc-brain_mask.nii.gz -thr 0.5 -bin /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/sub-${sub}_task-${task}_run-1_space-MNI152NLin6Asym_desc-brain_thr_mask.nii.gz    
-    fslmaths /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/func/sub-${sub}_task-${task}_run-2_space-MNI152NLin6Asym_desc-brain_mask.nii.gz -thr 0.5 -bin /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/sub-${sub}_task-${task}_run-2_space-MNI152NLin6Asym_desc-brain_thr_mask.nii.gz    
+	 #fslmaths /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/func/sub-${sub}_task-${task}_run-1_space-MNI152NLin6Asym_desc-brain_mask.nii.gz -thr 0.5 -bin /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/sub-${sub}_task-${task}_run-1_space-MNI152NLin6Asym_desc-brain_thr_mask.nii.gz    
+    #fslmaths /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/func/sub-${sub}_task-${task}_run-2_space-MNI152NLin6Asym_desc-brain_mask.nii.gz -thr 0.5 -bin /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/sub-${sub}_task-${task}_run-2_space-MNI152NLin6Asym_desc-brain_thr_mask.nii.gz    
     
     
     for i in sub-${sub}_task-${task}_run-*_echo-*_desc-preproc_bold.nii.gz; do
@@ -77,8 +77,8 @@ process_subject() {
         fslmaths tmp_mean -div tmp_std tmp_tsnr
         fslmaths tmp_tsnr -thr 2 thr_tmp_tsnr
         max=$(fslstats thr_tmp_tsnr -R | awk '{ print $2 }')
-        mean_stan_run1=$(fslstats thr_tmp_tsnr -M)
-        mean_stan_run2=$(fslstats thr_tmp_tsnr -M)
+        mean_stan_run1=$(fslstats thr_tmp_tsnr -k /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/func/sub-${sub}_task-${task}_run-1_space-MNI152NLin6Asym_desc-brain_mask.nii.gz-M)
+        mean_stan_run2=$(fslstats thr_tmp_tsnr -k /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/func/sub-${sub}_task-${task}_run-2_space-MNI152NLin6Asym_desc-brain_mask.nii.gz-M)
         mean_nat_run1=$(fslstats thr_tmp_tsnr -k /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/sub-${sub}_task-${task}_run-1_space-native_roi-wholebrain_thr_mask.nii.gz -M)
         mean_nat_run2=$(fslstats thr_tmp_tsnr -k /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/sub-${sub}_task-${task}_run-2_space-native_roi-wholebrain_thr_mask.nii.gz -M)
         vsmean_run1=$(fslstats thr_tmp_tsnr -k /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/sub-${sub}_task-${task}_run-1_space-native_roi-vs_thr_mask.nii.gz -M)
