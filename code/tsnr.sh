@@ -77,8 +77,8 @@ process_subject() {
         fslmaths tmp_mean -div tmp_std tmp_tsnr
         fslmaths tmp_tsnr -thr 2 thr_tmp_tsnr
         max=$(fslstats thr_tmp_tsnr -R | awk '{ print $2 }')
-        mean_stan_run1=$(fslstats thr_tmp_tsnr -k /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/func/sub-${sub}_task-${task}_run-1_space-MNI152NLin6Asym_desc-brain_mask.nii.gz-M)
-        mean_stan_run2=$(fslstats thr_tmp_tsnr -k /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/func/sub-${sub}_task-${task}_run-2_space-MNI152NLin6Asym_desc-brain_mask.nii.gz-M)
+        mean_stan_run1=$(fslstats thr_tmp_tsnr -k /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/func/sub-${sub}_task-${task}_run-1_space-MNI152NLin6Asym_desc-brain_mask.nii.gz -M)
+        mean_stan_run2=$(fslstats thr_tmp_tsnr -k /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/func/sub-${sub}_task-${task}_run-2_space-MNI152NLin6Asym_desc-brain_mask.nii.gz -M)
         mean_nat_run1=$(fslstats thr_tmp_tsnr -k /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/sub-${sub}_task-${task}_run-1_space-native_roi-wholebrain_thr_mask.nii.gz -M)
         mean_nat_run2=$(fslstats thr_tmp_tsnr -k /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/sub-${sub}_task-${task}_run-2_space-native_roi-wholebrain_thr_mask.nii.gz -M)
         vsmean_run1=$(fslstats thr_tmp_tsnr -k /ZPOOL/data/projects/rf1-sra-data/derivatives/fmriprep/sub-${sub}/sub-${sub}_task-${task}_run-1_space-native_roi-vs_thr_mask.nii.gz -M)
