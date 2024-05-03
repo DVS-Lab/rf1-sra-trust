@@ -24,7 +24,7 @@ else
     mkdir(outputdir); % set name
 end
 
-input_behavioral = '/ZPOOL/data/projects/rf1-sra-data/code/covariates.csv'; % input file  
+input_behavioral = '/ZPOOL/data/projects/rf1-sra-trust/covariates.csv'; % input file  
 %motion_input = 'motion_data_input.xls';
 
 %% Motion outliers
