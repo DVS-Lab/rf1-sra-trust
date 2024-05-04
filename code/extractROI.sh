@@ -9,18 +9,18 @@ maindir="$(dirname "$scriptdir")"
 
 # ROI name and other path information
 for TYPE in act; do
-	for ROI in seed-dlPFC; do
+	for ROI in seed-VS; do
 		MASK=${maindir}/masks/${ROI}.nii.gz
 		TASK=trust
-		group=twogroup
-		N=87
+		group=onegroup
+		N=101
 		outputdir=${maindir}/derivatives/imaging_plots/
 		mkdir -p $outputdir
 
-		for model in age; do 
+		for model in age 4; do 
 			#for copeinfo in "4 C_def" "5 C_rec" "6 F_def" "7 F_rec" "8 S_def" "9 S_rec" "10 rec-def" "11 face" "12 rec-def_F-S" "13 F-S" "14 F-C" "15 S-C" "16 rec_SocClose" "17 def_SocClose" "18 rec-def_SocClose"; do
-			#for copeinfo in "10 rec-def" "12 rec-def_F-S" "16 rec_SocClose" "17 def_SocClose" "18 rec-def_SocClose"; do
-			for copeinfo in "16 rec_SocClose"; do	
+			for copeinfo in "10 rec-def" "12 rec-def_F-S" "16 rec_SocClose" "17 def_SocClose" "18 rec-def_SocClose"; do
+			#for copeinfo in "16 rec_SocClose"; do	
 				# split copeinfo variable				
 				set -- $copeinfo
 				copenum=$1
