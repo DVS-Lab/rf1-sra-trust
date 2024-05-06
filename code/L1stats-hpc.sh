@@ -23,7 +23,7 @@ rm -f $logdir/cmd_feat_${PBS_JOBID}.txt
 touch $logdir/cmd_feat_${PBS_JOBID}.txt
 
 TASK=trust
-ppi=0
+ppi=VS
 sm=5
 
 # need to change this to a more targetted list of subjects
@@ -144,7 +144,7 @@ for sub in ${subjects[@]}; do
 				<$ITEMPLATE> $OTEMPLATE
 			else
 				PHYS=${MAINOUTPUT}/ts_task-${TASK}_mask-${ppi}_run-${run}.txt
-				MASK=${rf1datadir}/masks/seed-${ppi}.nii.gz
+				MASK=${projectdir}/masks/seed-${ppi}.nii.gz
 				fslmeants -i $DATA -o $PHYS -m $MASK
 				sed -e 's@OUTPUT@'$OUTPUT'@g' \
 				-e 's@DATA@'$DATA'@g' \
@@ -155,6 +155,7 @@ for sub in ${subjects[@]}; do
 				-e 's@SMOOTH@'$sm'@g' \
 				-e 's@CONFOUNDEVS@'$CONFOUNDEVS'@g' \
 				<$ITEMPLATE> $OTEMPLATE
+				
 			fi
 		fi
 
