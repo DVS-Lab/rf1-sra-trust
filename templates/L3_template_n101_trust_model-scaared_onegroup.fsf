@@ -30,7 +30,7 @@ set fmri(featwatcher_yn) 0
 set fmri(sscleanup_yn) 0
 
 # Output directory
-set fmri(outputdir) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/L3act_101"
+set fmri(outputdir) "OUTPUT"
 
 # TR(s)
 set fmri(tr) 3
@@ -153,13 +153,13 @@ set fmri(mixed_yn) 2
 set fmri(randomisePermutations) 5000
 
 # Number of EVs
-set fmri(evs_orig) 3
-set fmri(evs_real) 3
+set fmri(evs_orig) 4
+set fmri(evs_real) 4
 set fmri(evs_vox) 0
 
 # Number of contrasts
 set fmri(ncon_orig) 1
-set fmri(ncon_real) 4
+set fmri(ncon_real) 8
 
 # Number of F-tests
 set fmri(nftests_orig) 0
@@ -273,307 +273,307 @@ set fmri(totalVoxels) 215460
 set fmri(ncopeinputs) 0
 
 # 4D AVW data or FEAT directory (1)
-set feat_files(1) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10402/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1"
+set feat_files(1) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10402/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1"
 
 # 4D AVW data or FEAT directory (2)
-set feat_files(2) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10418/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(2) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10418/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (3)
-set feat_files(3) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10462/L1_task-trust_model-1_type-act_run-1_sm-5.feat/stats/cope1.nii.gz"
+set feat_files(3) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10462/L1_task-trust_model-1_type-REPLACEME_run-1_sm-5.feat/stats/copeCOPENUM.nii.gz"
 
 # 4D AVW data or FEAT directory (4)
-set feat_files(4) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10478/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(4) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10478/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (5)
-set feat_files(5) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10486/L1_task-trust_model-1_type-act_run-1_sm-5.feat/stats/cope1.nii.gz"
+set feat_files(5) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10486/L1_task-trust_model-1_type-REPLACEME_run-1_sm-5.feat/stats/copeCOPENUM.nii.gz"
 
 # 4D AVW data or FEAT directory (6)
-set feat_files(6) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10529/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(6) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10529/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (7)
-set feat_files(7) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10541/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(7) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10541/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (8)
-set feat_files(8) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10559/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(8) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10559/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (9)
-set feat_files(9) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10572/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(9) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10572/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (10)
-set feat_files(10) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10581/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(10) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10581/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (11)
-set feat_files(11) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10584/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(11) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10584/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (12)
-set feat_files(12) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10585/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(12) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10585/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (13)
-set feat_files(13) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10589/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(13) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10589/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (14)
-set feat_files(14) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10590/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(14) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10590/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (15)
-set feat_files(15) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10596/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(15) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10596/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (16)
-set feat_files(16) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10603/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(16) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10603/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (17)
-set feat_files(17) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10606/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(17) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10606/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (18)
-set feat_files(18) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10608/L1_task-trust_model-1_type-act_run-1_sm-5.feat/stats/cope1.nii.gz"
+set feat_files(18) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10608/L1_task-trust_model-1_type-REPLACEME_run-1_sm-5.feat/stats/copeCOPENUM.nii.gz"
 
 # 4D AVW data or FEAT directory (19)
-set feat_files(19) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10617/L1_task-trust_model-1_type-act_run-1_sm-5.feat/stats/cope1.nii.gz"
+set feat_files(19) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10617/L1_task-trust_model-1_type-REPLACEME_run-1_sm-5.feat/stats/copeCOPENUM.nii.gz"
 
 # 4D AVW data or FEAT directory (20)
-set feat_files(20) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10636/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(20) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10636/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (21)
-set feat_files(21) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10638/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(21) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10638/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (22)
-set feat_files(22) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10640/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(22) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10640/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (23)
-set feat_files(23) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10641/L1_task-trust_model-1_type-act_run-1_sm-5.feat/stats/cope1.nii.gz"
+set feat_files(23) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10641/L1_task-trust_model-1_type-REPLACEME_run-1_sm-5.feat/stats/copeCOPENUM.nii.gz"
 
 # 4D AVW data or FEAT directory (24)
-set feat_files(24) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10642/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(24) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10642/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (25)
-set feat_files(25) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10644/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(25) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10644/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (26)
-set feat_files(26) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10647/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(26) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10647/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (27)
-set feat_files(27) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10649/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(27) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10649/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (28)
-set feat_files(28) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10652/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(28) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10652/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (29)
-set feat_files(29) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10656/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(29) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10656/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (30)
-set feat_files(30) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10657/L1_task-trust_model-1_type-act_run-1_sm-5.feat/stats/cope1.nii.gz"
+set feat_files(30) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10657/L1_task-trust_model-1_type-REPLACEME_run-1_sm-5.feat/stats/copeCOPENUM.nii.gz"
 
 # 4D AVW data or FEAT directory (31)
-set feat_files(31) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10661/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(31) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10661/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (32)
-set feat_files(32) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10663/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(32) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10663/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (33)
-set feat_files(33) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10668/L1_task-trust_model-1_type-act_run-1_sm-5.feat/stats/cope1.nii.gz"
+set feat_files(33) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10668/L1_task-trust_model-1_type-REPLACEME_run-1_sm-5.feat/stats/copeCOPENUM.nii.gz"
 
 # 4D AVW data or FEAT directory (34)
-set feat_files(34) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10673/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(34) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10673/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (35)
-set feat_files(35) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10674/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(35) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10674/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (36)
-set feat_files(36) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10677/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(36) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10677/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (37)
-set feat_files(37) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10685/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(37) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10685/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (38)
-set feat_files(38) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10690/L1_task-trust_model-1_type-act_run-1_sm-5.feat/stats/cope1.nii.gz"
+set feat_files(38) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10690/L1_task-trust_model-1_type-REPLACEME_run-1_sm-5.feat/stats/copeCOPENUM.nii.gz"
 
 # 4D AVW data or FEAT directory (39)
-set feat_files(39) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10691/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(39) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10691/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (40)
-set feat_files(40) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10700/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(40) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10700/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (41)
-set feat_files(41) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10701/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(41) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10701/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (42)
-set feat_files(42) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10713/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(42) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10713/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (43)
-set feat_files(43) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10716/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(43) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10716/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (44)
-set feat_files(44) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10718/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(44) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10718/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (45)
-set feat_files(45) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10720/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(45) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10720/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (46)
-set feat_files(46) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10723/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(46) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10723/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (47)
-set feat_files(47) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10741/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(47) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10741/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (48)
-set feat_files(48) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10748/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(48) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10748/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (49)
-set feat_files(49) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10767/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(49) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10767/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (50)
-set feat_files(50) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10770/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(50) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10770/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (51)
-set feat_files(51) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10777/L1_task-trust_model-1_type-act_run-1_sm-5.feat/stats/cope1.nii.gz"
+set feat_files(51) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10777/L1_task-trust_model-1_type-REPLACEME_run-1_sm-5.feat/stats/copeCOPENUM.nii.gz"
 
 # 4D AVW data or FEAT directory (52)
-set feat_files(52) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10781/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(52) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10781/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (53)
-set feat_files(53) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10783/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(53) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10783/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (54)
-set feat_files(54) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10785/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(54) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10785/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (55)
-set feat_files(55) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10794/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(55) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10794/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (56)
-set feat_files(56) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10801/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(56) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10801/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (57)
-set feat_files(57) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10802/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(57) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10802/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (58)
-set feat_files(58) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10803/L1_task-trust_model-1_type-act_run-1_sm-5.feat/stats/cope1.nii.gz"
+set feat_files(58) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10803/L1_task-trust_model-1_type-REPLACEME_run-1_sm-5.feat/stats/copeCOPENUM.nii.gz"
 
 # 4D AVW data or FEAT directory (59)
-set feat_files(59) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10804/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(59) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10804/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (60)
-set feat_files(60) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10806/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(60) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10806/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (61)
-set feat_files(61) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10807/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(61) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10807/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (62)
-set feat_files(62) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10809/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(62) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10809/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (63)
-set feat_files(63) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10810/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(63) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10810/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (64)
-set feat_files(64) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10812/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(64) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10812/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (65)
-set feat_files(65) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10817/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(65) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10817/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (66)
-set feat_files(66) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10827/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(66) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10827/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (67)
-set feat_files(67) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10831/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(67) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10831/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (68)
-set feat_files(68) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10834/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(68) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10834/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (69)
-set feat_files(69) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10838/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(69) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10838/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (70)
-set feat_files(70) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10843/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(70) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10843/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (71)
-set feat_files(71) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10850/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(71) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10850/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (72)
-set feat_files(72) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10854/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(72) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10854/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (73)
-set feat_files(73) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10857/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(73) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10857/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (74)
-set feat_files(74) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10858/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(74) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10858/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (75)
-set feat_files(75) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10860/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(75) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10860/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (76)
-set feat_files(76) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10862/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(76) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10862/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (77)
-set feat_files(77) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10863/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(77) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10863/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (78)
-set feat_files(78) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10866/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(78) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10866/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (79)
-set feat_files(79) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10875/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(79) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10875/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (80)
-set feat_files(80) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10887/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(80) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10887/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (81)
-set feat_files(81) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10896/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(81) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10896/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (82)
-set feat_files(82) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10898/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(82) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10898/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (83)
-set feat_files(83) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10908/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(83) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10908/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (84)
-set feat_files(84) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10918/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(84) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10918/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (85)
-set feat_files(85) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10924/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(85) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10924/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (86)
-set feat_files(86) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10930/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(86) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10930/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (87)
-set feat_files(87) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10938/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(87) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10938/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (88)
-set feat_files(88) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10940/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(88) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10940/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (89)
-set feat_files(89) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10950/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(89) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10950/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (90)
-set feat_files(90) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10952/L1_task-trust_model-1_type-act_run-1_sm-5.feat/stats/cope1.nii.gz"
+set feat_files(90) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10952/L1_task-trust_model-1_type-REPLACEME_run-1_sm-5.feat/stats/copeCOPENUM.nii.gz"
 
 # 4D AVW data or FEAT directory (91)
-set feat_files(91) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10953/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(91) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10953/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (92)
-set feat_files(92) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10954/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(92) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10954/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (93)
-set feat_files(93) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10956/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(93) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10956/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (94)
-set feat_files(94) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10958/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(94) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10958/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (95)
-set feat_files(95) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10969/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(95) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10969/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (96)
-set feat_files(96) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10974/L1_task-trust_model-1_type-act_run-1_sm-5.feat/stats/cope1.nii.gz"
+set feat_files(96) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10974/L1_task-trust_model-1_type-REPLACEME_run-1_sm-5.feat/stats/copeCOPENUM.nii.gz"
 
 # 4D AVW data or FEAT directory (97)
-set feat_files(97) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10977/L1_task-trust_model-1_type-act_run-1_sm-5.feat/stats/cope1.nii.gz"
+set feat_files(97) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10977/L1_task-trust_model-1_type-REPLACEME_run-1_sm-5.feat/stats/copeCOPENUM.nii.gz"
 
 # 4D AVW data or FEAT directory (98)
-set feat_files(98) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10983/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(98) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10983/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (99)
-set feat_files(99) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10984/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(99) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-10984/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (100)
-set feat_files(100) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-11005/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(100) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-11005/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # 4D AVW data or FEAT directory (101)
-set feat_files(101) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-11031/L2_task-trust_model-1_type-act_sm-5.gfeat/cope1.feat/stats/cope1.nii.gz"
+set feat_files(101) "/ZPOOL/data/projects/rf1-sra-trust/derivatives/fsl/sub-11031/L2_task-trust_model-1_type-REPLACEME_sm-5.gfeat/copeCOPENUM.feat/stats/cope1.nii.gz"
 
 # Add confound EVs text file
 set fmri(confoundevs) 0
@@ -624,6 +624,9 @@ set fmri(ortho1.2) 0
 
 # Orthogonalise EV 1 wrt EV 3
 set fmri(ortho1.3) 0
+
+# Orthogonalise EV 1 wrt EV 4
+set fmri(ortho1.4) 0
 
 # Higher-level EV value for EV 1 and input 1
 set fmri(evg1.1) 1
@@ -975,6 +978,9 @@ set fmri(ortho2.2) 0
 # Orthogonalise EV 2 wrt EV 3
 set fmri(ortho2.3) 0
 
+# Orthogonalise EV 2 wrt EV 4
+set fmri(ortho2.4) 0
+
 # Higher-level EV value for EV 2 and input 1
 set fmri(evg1.2) -7.323366337
 
@@ -1325,6 +1331,9 @@ set fmri(ortho3.2) 0
 # Orthogonalise EV 3 wrt EV 3
 set fmri(ortho3.3) 0
 
+# Orthogonalise EV 3 wrt EV 4
+set fmri(ortho3.4) 0
+
 # Higher-level EV value for EV 3 and input 1
 set fmri(evg1.3) -10.10891089
 
@@ -1627,6 +1636,359 @@ set fmri(evg100.3) 17.89108911
 
 # Higher-level EV value for EV 3 and input 101
 set fmri(evg101.3) 6.891089109
+
+# EV 4 title
+set fmri(evtitle4) "AgexScaared"
+
+# Basic waveform shape (EV 4)
+# 0 : Square
+# 1 : Sinusoid
+# 2 : Custom (1 entry per volume)
+# 3 : Custom (3 column format)
+# 4 : Interaction
+# 10 : Empty (all zeros)
+set fmri(shape4) 2
+
+# Convolution (EV 4)
+# 0 : None
+# 1 : Gaussian
+# 2 : Gamma
+# 3 : Double-Gamma HRF
+# 4 : Gamma basis functions
+# 5 : Sine basis functions
+# 6 : FIR basis functions
+# 8 : Alternate Double-Gamma
+set fmri(convolve4) 0
+
+# Convolve phase (EV 4)
+set fmri(convolve_phase4) 0
+
+# Apply temporal filtering (EV 4)
+set fmri(tempfilt_yn4) 0
+
+# Add temporal derivative (EV 4)
+set fmri(deriv_yn4) 0
+
+# Custom EV file (EV 4)
+set fmri(custom4) "dummy"
+
+# Orthogonalise EV 4 wrt EV 0
+set fmri(ortho4.0) 0
+
+# Orthogonalise EV 4 wrt EV 1
+set fmri(ortho4.1) 0
+
+# Orthogonalise EV 4 wrt EV 2
+set fmri(ortho4.2) 0
+
+# Orthogonalise EV 4 wrt EV 3
+set fmri(ortho4.3) 0
+
+# Orthogonalise EV 4 wrt EV 4
+set fmri(ortho4.4) 0
+
+# Higher-level EV value for EV 4 and input 1
+set fmri(evg1.4) 74.0312577155587
+
+# Higher-level EV value for EV 4 and input 2
+set fmri(evg2.4) -104.270326422491
+
+# Higher-level EV value for EV 4 and input 3
+set fmri(evg3.4) -283.694484783115
+
+# Higher-level EV value for EV 4 and input 4
+set fmri(evg4.4) -259.503989878515
+
+# Higher-level EV value for EV 4 and input 5
+set fmri(evg5.4) -22.8598313967413
+
+# Higher-level EV value for EV 4 and input 6
+set fmri(evg6.4) -174.428742254051
+
+# Higher-level EV value for EV 4 and input 7
+set fmri(evg7.4) -2.82042544581119
+
+# Higher-level EV value for EV 4 and input 8
+set fmri(evg8.4) 300.695911236585
+
+# Higher-level EV value for EV 4 and input 9
+set fmri(evg9.4) -438.108148136915
+
+# Higher-level EV value for EV 4 and input 10
+set fmri(evg10.4) -10.0524056453079
+
+# Higher-level EV value for EV 4 and input 11
+set fmri(evg11.4) -26.2010195058179
+
+# Higher-level EV value for EV 4 and input 12
+set fmri(evg12.4) -22.2521086112812
+
+# Higher-level EV value for EV 4 and input 13
+set fmri(evg13.4) -208.920029427141
+
+# Higher-level EV value for EV 4 and input 14
+set fmri(evg14.4) -40.8406234566512
+
+# Higher-level EV value for EV 4 and input 15
+set fmri(evg15.4) -238.158643337815
+
+# Higher-level EV value for EV 4 and input 16
+set fmri(evg16.4) -496.002999613315
+
+# Higher-level EV value for EV 4 and input 17
+set fmri(evg17.4) 273.496010216485
+
+# Higher-level EV value for EV 4 and input 18
+set fmri(evg18.4) -424.255178039815
+
+# Higher-level EV value for EV 4 and input 19
+set fmri(evg19.4) -515.604979813515
+
+# Higher-level EV value for EV 4 and input 20
+set fmri(evg20.4) -228.555177988415
+
+# Higher-level EV value for EV 4 and input 21
+set fmri(evg21.4) -517.310623376215
+
+# Higher-level EV value for EV 4 and input 22
+set fmri(evg22.4) -33.3439898156812
+
+# Higher-level EV value for EV 4 and input 23
+set fmri(evg23.4) -15.7372571260413
+
+# Higher-level EV value for EV 4 and input 24
+set fmri(evg24.4) -214.666366118515
+
+# Higher-level EV value for EV 4 and input 25
+set fmri(evg25.4) -55.1409204885612
+
+# Higher-level EV value for EV 4 and input 26
+set fmri(evg26.4) 375.501059747385
+
+# Higher-level EV value for EV 4 and input 27
+set fmri(evg27.4) -412.969336249515
+
+# Higher-level EV value for EV 4 and input 28
+set fmri(evg28.4) -511.863395652015
+
+# Higher-level EV value for EV 4 and input 29
+set fmri(evg29.4) -84.9555739783812
+
+# Higher-level EV value for EV 4 and input 30
+set fmri(evg30.4) -174.594682819715
+
+# Higher-level EV value for EV 4 and input 31
+set fmri(evg31.4) -30.3099303968179
+
+# Higher-level EV value for EV 4 and input 32
+set fmri(evg32.4) -591.106069129815
+
+# Higher-level EV value for EV 4 and input 33
+set fmri(evg33.4) -134.905573978141
+
+# Higher-level EV value for EV 4 and input 34
+set fmri(evg34.4) 52.7851191028221
+
+# Higher-level EV value for EV 4 and input 35
+set fmri(evg35.4) 172.173237964485
+
+# Higher-level EV value for EV 4 and input 36
+set fmri(evg36.4) 159.371356724859
+
+# Higher-level EV value for EV 4 and input 37
+set fmri(evg37.4) -43.2047818867079
+
+# Higher-level EV value for EV 4 and input 38
+set fmri(evg38.4) 50.1819507771888
+
+# Higher-level EV value for EV 4 and input 39
+set fmri(evg39.4) 223.465119072185
+
+# Higher-level EV value for EV 4 and input 40
+set fmri(evg40.4) 100.407297339239
+
+# Higher-level EV value for EV 4 and input 41
+set fmri(evg41.4) 1.76907950092881
+
+# Higher-level EV value for EV 4 and input 42
+set fmri(evg42.4) -398.811415469215
+
+# Higher-level EV value for EV 4 and input 43
+set fmri(evg43.4) -390.816662993215
+
+# Higher-level EV value for EV 4 and input 44
+set fmri(evg44.4) 300.897000345485
+
+# Higher-level EV value for EV 4 and input 45
+set fmri(evg45.4) 89.4801686133821
+
+# Higher-level EV value for EV 4 and input 46
+set fmri(evg46.4) -170.158445278951
+
+# Higher-level EV value for EV 4 and input 47
+set fmri(evg47.4) -37.3104254512079
+
+# Higher-level EV value for EV 4 and input 48
+set fmri(evg48.4) 160.498980487159
+
+# Higher-level EV value for EV 4 and input 49
+set fmri(evg49.4) -370.887158211415
+
+# Higher-level EV value for EV 4 and input 50
+set fmri(evg50.4) -257.394682810315
+
+# Higher-level EV value for EV 4 and input 51
+set fmri(evg51.4) -126.953494770241
+
+# Higher-level EV value for EV 4 and input 52
+set fmri(evg52.4) 12.0911587101921
+
+# Higher-level EV value for EV 4 and input 53
+set fmri(evg53.4) -95.8618115740413
+
+# Higher-level EV value for EV 4 and input 54
+set fmri(evg54.4) -253.489633302215
+
+# Higher-level EV value for EV 4 and input 55
+set fmri(evg55.4) 36.1228418780587
+
+# Higher-level EV value for EV 4 and input 56
+set fmri(evg56.4) -86.3825046608079
+
+# Higher-level EV value for EV 4 and input 57
+set fmri(evg57.4) -10.8315145649413
+
+# Higher-level EV value for EV 4 and input 58
+set fmri(evg58.4) 23.9562082166888
+
+# Higher-level EV value for EV 4 and input 59
+set fmri(evg59.4) 72.9880894152488
+
+# Higher-level EV value for EV 4 and input 60
+set fmri(evg60.4) 327.239673611385
+
+# Higher-level EV value for EV 4 and input 61
+set fmri(evg61.4) -193.836663012015
+
+# Higher-level EV value for EV 4 and input 62
+set fmri(evg62.4) 73.7419507816788
+
+# Higher-level EV value for EV 4 and input 63
+set fmri(evg63.4) -430.402603581315
+
+# Higher-level EV value for EV 4 and input 64
+set fmri(evg64.4) -375.425771897415
+
+# Higher-level EV value for EV 4 and input 65
+set fmri(evg65.4) -92.3331977469412
+
+# Higher-level EV value for EV 4 and input 66
+set fmri(evg66.4) -177.496069044551
+
+# Higher-level EV value for EV 4 and input 67
+set fmri(evg67.4) -892.220623655715
+
+# Higher-level EV value for EV 4 and input 68
+set fmri(evg68.4) 9.24393098803207
+
+# Higher-level EV value for EV 4 and input 69
+set fmri(evg69.4) -502.115376051815
+
+# Higher-level EV value for EV 4 and input 70
+set fmri(evg70.4) -257.806960173115
+
+# Higher-level EV value for EV 4 and input 71
+set fmri(evg71.4) -9.43963337322119
+
+# Higher-level EV value for EV 4 and input 72
+set fmri(evg72.4) -28.5741878179413
+
+# Higher-level EV value for EV 4 and input 73
+set fmri(evg73.4) -773.730326585615
+
+# Higher-level EV value for EV 4 and input 74
+set fmri(evg74.4) 549.728881472286
+
+# Higher-level EV value for EV 4 and input 75
+set fmri(evg75.4) 116.713435932759
+
+# Higher-level EV value for EV 4 and input 76
+set fmri(evg76.4) -332.812900612715
+
+# Higher-level EV value for EV 4 and input 77
+set fmri(evg77.4) -1.91785119217792
+
+# Higher-level EV value for EV 4 and input 78
+set fmri(evg78.4) -234.968940270091
+
+# Higher-level EV value for EV 4 and input 79
+set fmri(evg79.4) -19.9762670399512
+
+# Higher-level EV value for EV 4 and input 80
+set fmri(evg80.4) 116.087297320959
+
+# Higher-level EV value for EV 4 and input 81
+set fmri(evg81.4) -147.014880928651
+
+# Higher-level EV value for EV 4 and input 82
+set fmri(evg82.4) -169.577257099331
+
+# Higher-level EV value for EV 4 and input 83
+set fmri(evg83.4) 9.41838643755871
+
+# Higher-level EV value for EV 4 and input 84
+set fmri(evg84.4) -519.425970117115
+
+# Higher-level EV value for EV 4 and input 85
+set fmri(evg85.4) -486.461019667715
+
+# Higher-level EV value for EV 4 and input 86
+set fmri(evg86.4) -90.3004254364413
+
+# Higher-level EV value for EV 4 and input 87
+set fmri(evg87.4) -48.3641878128712
+
+# Higher-level EV value for EV 4 and input 88
+set fmri(evg88.4) 417.126505289686
+
+# Higher-level EV value for EV 4 and input 89
+set fmri(evg89.4) -150.272900724271
+
+# Higher-level EV value for EV 4 and input 90
+set fmri(evg90.4) 192.196505293985
+
+# Higher-level EV value for EV 4 and input 91
+set fmri(evg91.4) 135.111059678579
+
+# Higher-level EV value for EV 4 and input 92
+set fmri(evg92.4) -41.4928016779413
+
+# Higher-level EV value for EV 4 and input 93
+set fmri(evg93.4) -130.551118549031
+
+# Higher-level EV value for EV 4 and input 94
+set fmri(evg94.4) -369.620425473441
+
+# Higher-level EV value for EV 4 and input 95
+set fmri(evg95.4) 165.820168627085
+
+# Higher-level EV value for EV 4 and input 96
+set fmri(evg96.4) -373.692405572215
+
+# Higher-level EV value for EV 4 and input 97
+set fmri(evg97.4) 7.93601019681208
+
+# Higher-level EV value for EV 4 and input 98
+set fmri(evg98.4) -109.004979925411
+
+# Higher-level EV value for EV 4 and input 99
+set fmri(evg99.4) 17.1079903932121
+
+# Higher-level EV value for EV 4 and input 100
+set fmri(evg100.4) -124.582207640841
+
+# Higher-level EV value for EV 4 and input 101
+set fmri(evg101.4) -138.327356166541
 
 # Setup Orthogonalisation at higher level?
 set fmri(level2orth) 0
@@ -1955,6 +2317,9 @@ set fmri(con_real1.2) 0
 # Real contrast_real vector 1 element 3
 set fmri(con_real1.3) 0
 
+# Real contrast_real vector 1 element 4
+set fmri(con_real1.4) 0
+
 # Display images for contrast_real 2
 set fmri(conpic_real.2) 1
 
@@ -1970,6 +2335,9 @@ set fmri(con_real2.2) 0
 # Real contrast_real vector 2 element 3
 set fmri(con_real2.3) 0
 
+# Real contrast_real vector 2 element 4
+set fmri(con_real2.4) 0
+
 # Display images for contrast_real 3
 set fmri(conpic_real.3) 1
 
@@ -1977,13 +2345,16 @@ set fmri(conpic_real.3) 1
 set fmri(conname_real.3) "Age Pos"
 
 # Real contrast_real vector 3 element 1
-set fmri(con_real3.1) 1.0
+set fmri(con_real3.1) 0.0
 
 # Real contrast_real vector 3 element 2
-set fmri(con_real3.2) 0
+set fmri(con_real3.2) 1.0
 
 # Real contrast_real vector 3 element 3
 set fmri(con_real3.3) 0
+
+# Real contrast_real vector 3 element 4
+set fmri(con_real3.4) 0
 
 # Display images for contrast_real 4
 set fmri(conpic_real.4) 1
@@ -1992,13 +2363,88 @@ set fmri(conpic_real.4) 1
 set fmri(conname_real.4) "Age Neg"
 
 # Real contrast_real vector 4 element 1
-set fmri(con_real4.1) -1.0
+set fmri(con_real4.1) 0.0
 
 # Real contrast_real vector 4 element 2
-set fmri(con_real4.2) 0
+set fmri(con_real4.2) -1.0
 
 # Real contrast_real vector 4 element 3
 set fmri(con_real4.3) 0
+
+# Real contrast_real vector 4 element 4
+set fmri(con_real4.4) 0
+
+# Display images for contrast_real 5
+set fmri(conpic_real.5) 1
+
+# Title for contrast_real 5
+set fmri(conname_real.5) "Scaared Pos"
+
+# Real contrast_real vector 5 element 1
+set fmri(con_real5.1) 0
+
+# Real contrast_real vector 5 element 2
+set fmri(con_real5.2) 0
+
+# Real contrast_real vector 5 element 3
+set fmri(con_real5.3) 1.0
+
+# Real contrast_real vector 5 element 4
+set fmri(con_real5.4) 0
+
+# Display images for contrast_real 6
+set fmri(conpic_real.6) 1
+
+# Title for contrast_real 6
+set fmri(conname_real.6) "Scaared Neg"
+
+# Real contrast_real vector 6 element 1
+set fmri(con_real6.1) 0
+
+# Real contrast_real vector 6 element 2
+set fmri(con_real6.2) 0
+
+# Real contrast_real vector 6 element 3
+set fmri(con_real6.3) -1.0
+
+# Real contrast_real vector 6 element 4
+set fmri(con_real6.4) 0
+
+# Display images for contrast_real 7
+set fmri(conpic_real.7) 1
+
+# Title for contrast_real 7
+set fmri(conname_real.7) "AgexScaared Pos"
+
+# Real contrast_real vector 7 element 1
+set fmri(con_real7.1) 0
+
+# Real contrast_real vector 7 element 2
+set fmri(con_real7.2) 0
+
+# Real contrast_real vector 7 element 3
+set fmri(con_real7.3) 0
+
+# Real contrast_real vector 7 element 4
+set fmri(con_real7.4) 1.0
+
+# Display images for contrast_real 8
+set fmri(conpic_real.8) 1
+
+# Title for contrast_real 8
+set fmri(conname_real.8) "AgexScaared Neg"
+
+# Real contrast_real vector 8 element 1
+set fmri(con_real8.1) 0
+
+# Real contrast_real vector 8 element 2
+set fmri(con_real8.2) 0
+
+# Real contrast_real vector 8 element 3
+set fmri(con_real8.3) 0
+
+# Real contrast_real vector 8 element 4
+set fmri(con_real8.4) -1.0
 
 # Contrast masking - use >0 instead of thresholding?
 set fmri(conmask_zerothresh_yn) 0
@@ -2012,6 +2458,18 @@ set fmri(conmask1_3) 0
 # Mask real contrast/F-test 1 with real contrast/F-test 4?
 set fmri(conmask1_4) 0
 
+# Mask real contrast/F-test 1 with real contrast/F-test 5?
+set fmri(conmask1_5) 0
+
+# Mask real contrast/F-test 1 with real contrast/F-test 6?
+set fmri(conmask1_6) 0
+
+# Mask real contrast/F-test 1 with real contrast/F-test 7?
+set fmri(conmask1_7) 0
+
+# Mask real contrast/F-test 1 with real contrast/F-test 8?
+set fmri(conmask1_8) 0
+
 # Mask real contrast/F-test 2 with real contrast/F-test 1?
 set fmri(conmask2_1) 0
 
@@ -2020,6 +2478,18 @@ set fmri(conmask2_3) 0
 
 # Mask real contrast/F-test 2 with real contrast/F-test 4?
 set fmri(conmask2_4) 0
+
+# Mask real contrast/F-test 2 with real contrast/F-test 5?
+set fmri(conmask2_5) 0
+
+# Mask real contrast/F-test 2 with real contrast/F-test 6?
+set fmri(conmask2_6) 0
+
+# Mask real contrast/F-test 2 with real contrast/F-test 7?
+set fmri(conmask2_7) 0
+
+# Mask real contrast/F-test 2 with real contrast/F-test 8?
+set fmri(conmask2_8) 0
 
 # Mask real contrast/F-test 3 with real contrast/F-test 1?
 set fmri(conmask3_1) 0
@@ -2030,6 +2500,18 @@ set fmri(conmask3_2) 0
 # Mask real contrast/F-test 3 with real contrast/F-test 4?
 set fmri(conmask3_4) 0
 
+# Mask real contrast/F-test 3 with real contrast/F-test 5?
+set fmri(conmask3_5) 0
+
+# Mask real contrast/F-test 3 with real contrast/F-test 6?
+set fmri(conmask3_6) 0
+
+# Mask real contrast/F-test 3 with real contrast/F-test 7?
+set fmri(conmask3_7) 0
+
+# Mask real contrast/F-test 3 with real contrast/F-test 8?
+set fmri(conmask3_8) 0
+
 # Mask real contrast/F-test 4 with real contrast/F-test 1?
 set fmri(conmask4_1) 0
 
@@ -2038,6 +2520,102 @@ set fmri(conmask4_2) 0
 
 # Mask real contrast/F-test 4 with real contrast/F-test 3?
 set fmri(conmask4_3) 0
+
+# Mask real contrast/F-test 4 with real contrast/F-test 5?
+set fmri(conmask4_5) 0
+
+# Mask real contrast/F-test 4 with real contrast/F-test 6?
+set fmri(conmask4_6) 0
+
+# Mask real contrast/F-test 4 with real contrast/F-test 7?
+set fmri(conmask4_7) 0
+
+# Mask real contrast/F-test 4 with real contrast/F-test 8?
+set fmri(conmask4_8) 0
+
+# Mask real contrast/F-test 5 with real contrast/F-test 1?
+set fmri(conmask5_1) 0
+
+# Mask real contrast/F-test 5 with real contrast/F-test 2?
+set fmri(conmask5_2) 0
+
+# Mask real contrast/F-test 5 with real contrast/F-test 3?
+set fmri(conmask5_3) 0
+
+# Mask real contrast/F-test 5 with real contrast/F-test 4?
+set fmri(conmask5_4) 0
+
+# Mask real contrast/F-test 5 with real contrast/F-test 6?
+set fmri(conmask5_6) 0
+
+# Mask real contrast/F-test 5 with real contrast/F-test 7?
+set fmri(conmask5_7) 0
+
+# Mask real contrast/F-test 5 with real contrast/F-test 8?
+set fmri(conmask5_8) 0
+
+# Mask real contrast/F-test 6 with real contrast/F-test 1?
+set fmri(conmask6_1) 0
+
+# Mask real contrast/F-test 6 with real contrast/F-test 2?
+set fmri(conmask6_2) 0
+
+# Mask real contrast/F-test 6 with real contrast/F-test 3?
+set fmri(conmask6_3) 0
+
+# Mask real contrast/F-test 6 with real contrast/F-test 4?
+set fmri(conmask6_4) 0
+
+# Mask real contrast/F-test 6 with real contrast/F-test 5?
+set fmri(conmask6_5) 0
+
+# Mask real contrast/F-test 6 with real contrast/F-test 7?
+set fmri(conmask6_7) 0
+
+# Mask real contrast/F-test 6 with real contrast/F-test 8?
+set fmri(conmask6_8) 0
+
+# Mask real contrast/F-test 7 with real contrast/F-test 1?
+set fmri(conmask7_1) 0
+
+# Mask real contrast/F-test 7 with real contrast/F-test 2?
+set fmri(conmask7_2) 0
+
+# Mask real contrast/F-test 7 with real contrast/F-test 3?
+set fmri(conmask7_3) 0
+
+# Mask real contrast/F-test 7 with real contrast/F-test 4?
+set fmri(conmask7_4) 0
+
+# Mask real contrast/F-test 7 with real contrast/F-test 5?
+set fmri(conmask7_5) 0
+
+# Mask real contrast/F-test 7 with real contrast/F-test 6?
+set fmri(conmask7_6) 0
+
+# Mask real contrast/F-test 7 with real contrast/F-test 8?
+set fmri(conmask7_8) 0
+
+# Mask real contrast/F-test 8 with real contrast/F-test 1?
+set fmri(conmask8_1) 0
+
+# Mask real contrast/F-test 8 with real contrast/F-test 2?
+set fmri(conmask8_2) 0
+
+# Mask real contrast/F-test 8 with real contrast/F-test 3?
+set fmri(conmask8_3) 0
+
+# Mask real contrast/F-test 8 with real contrast/F-test 4?
+set fmri(conmask8_4) 0
+
+# Mask real contrast/F-test 8 with real contrast/F-test 5?
+set fmri(conmask8_5) 0
+
+# Mask real contrast/F-test 8 with real contrast/F-test 6?
+set fmri(conmask8_6) 0
+
+# Mask real contrast/F-test 8 with real contrast/F-test 7?
+set fmri(conmask8_7) 0
 
 # Do contrast masking at all?
 set fmri(conmask1_1) 0
