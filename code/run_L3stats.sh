@@ -10,7 +10,7 @@ maindir="$(dirname "$scriptdir")"
 
 
 # this loop defines the different types of analyses that will go into the group comparisons
-for analysis in act; do
+for analysis in ppi; do
 	analysistype=${analysis}
 
 	# these define the cope number (copenum) and cope name (copename)
