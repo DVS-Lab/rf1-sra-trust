@@ -12,7 +12,7 @@ mapfile -t myArray < sublist_all.txt
 ntasks=14
 counter=0
 for task in trust; do
-	for ppi in "VS"; do #"VS_thr5" "dmn"; do # 0 "VS_thr5" "dmn"; do # putting 0 first will indicate "activation"
+	for ppi in "amyg-bilateral"; do #"VS_thr5" "dmn"; do # 0 "VS_thr5" "dmn"; do # putting 0 first will indicate "activation"
 		#for run in 1 2; do
 		
 		while [ $counter -lt ${#myArray[@]} ]; do

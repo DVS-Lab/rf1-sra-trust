@@ -23,7 +23,7 @@ rm -f $logdir/cmd_feat_${PBS_JOBID}.txt
 touch $logdir/cmd_feat_${PBS_JOBID}.txt
 
 TASK=trust
-ppi=VS
+ppi=amyg-bilateral
 sm=5
 
 # need to change this to a more targetted list of subjects
