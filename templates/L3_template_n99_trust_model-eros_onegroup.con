@@ -1,0 +1,18 @@
+/ContrastName1	group pos 
+/ContrastName2	group neg 
+/ContrastName3	Age Pos 
+/ContrastName4	Age Neg 
+/ContrastName5	Eros Pos 
+/ContrastName6	Eros Neg 
+/NumWaves	3
+/NumContrasts	6
+/PPheights		1.348608e+00	1.348608e+00	6.989252e+01	6.989252e+01	4.050004e+00	4.050004e+00
+/RequiredEffect		0.515	0.515	1.641	1.641	1.871	1.871
+
+/Matrix
+1.000000e+00 0.000000e+00 0.000000e+00 
+-1.000000e+00 0.000000e+00 0.000000e+00 
+0.000000e+00 1.000000e+00 0.000000e+00 
+0.000000e+00 -1.000000e+00 0.000000e+00 
+0.000000e+00 0.000000e+00 1.000000e+00 
+0.000000e+00 0.000000e+00 -1.000000e+00 
