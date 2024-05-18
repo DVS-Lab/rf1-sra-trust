@@ -7,23 +7,22 @@ cd(codedir);
 addpath(codedir);
 cd ..
 
-maindir = '/Users/coopersharp/Documents/GitHub/rf1-sra-data';
-rawdata = '/Users/coopersharp/Documents/GitHub/rf1-sra-data/bids/';
-basedir = '/Users/coopersharp/Documents/GitHub/rf1-sra-trust';
+maindir = '/ZPOOL/data/projects/rf1-sra-data';
+rawdata = '/ZPOOL/data/projects/rf1-sra-data/bids/';
+basedir = '/ZPOOL/data/projects/rf1-sra-trust';
 outdir = fullfile(basedir, 'derivatives', 'behavioral');
 if ~exist(outdir, 'dir')
     mkdir(outdir);
 end
 
-sublist = [10317
-10369
-10402
+sublist = [10402
 10418
 10462
 10478
 10486
 10529
 10541
+10559
 10572
 10581
 10584
@@ -46,7 +45,7 @@ sublist = [10317
 10652
 10656
 10657
-10659
+10661
 10663
 10668
 10673
@@ -71,7 +70,6 @@ sublist = [10317
 10783
 10785
 10794
-10800
 10801
 10802
 10803
@@ -79,7 +77,45 @@ sublist = [10317
 10806
 10807
 10809
-10812];
+10810
+10812
+10817
+10827
+10831
+10834
+10838
+10843
+10850
+10854
+10857
+10858
+10860
+10862
+10863
+10866
+10875
+10887
+10896
+10898
+10908
+10918
+10924
+10930
+10938
+10940
+10950
+10952
+10953
+10954
+10956
+10958
+10969
+10974
+10977
+10983
+10984
+11005
+11031];
 
 fname = sprintf('summary_task-trust_desc-postOutcomeShifts-std.csv');
 fid = fopen(fullfile(outdir, fname), 'w');
