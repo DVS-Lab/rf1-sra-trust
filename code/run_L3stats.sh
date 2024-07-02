@@ -10,7 +10,7 @@ maindir="$(dirname "$scriptdir")"
 
 
 # this loop defines the different types of analyses that will go into the group comparisons
-for analysis in ppi; do
+for analysis in act; do
 	analysistype=${analysis}
 
 	# these define the cope number (copenum) and cope name (copename)
@@ -29,7 +29,7 @@ for analysis in ppi; do
 			continue
 		fi
 
-		NCORES=19
+		NCORES=30
 		SCRIPTNAME=${maindir}/code/L3stats.sh
 		while [ $(ps -ef | grep -v grep | grep $SCRIPTNAME | wc -l) -ge $NCORES ]; do
 			sleep 1s
