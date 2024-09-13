@@ -4,14 +4,14 @@
 /ContrastName4	age neg 
 /ContrastName5	oafem pos 
 /ContrastName6	oafem neg 
-/ContrastName7	close_fc pos 
-/ContrastName8	close_fc neg 
-/ContrastName9	age*oafem*close_fc pos 
-/ContrastName10	age*oafem*close_fc neg 
+/ContrastName7	close_fs>c pos 
+/ContrastName8	close_fs>c neg 
+/ContrastName9	age*oafem*close_fs>c pos 
+/ContrastName10	age*oafem*close_fs>c neg 
 /NumWaves	5
 /NumContrasts	10
-/PPheights		2.427215e+00	2.427215e+00	5.979405e+01	5.979405e+01	5.495828e+01	5.495828e+01	9.457749e+00	9.457749e+00	2.760614e+03	2.760614e+03
-/RequiredEffect		0.877	0.877	1.179	1.179	1.858	1.858	1.798	1.798	3.850	3.850
+/PPheights		1.831501e+00	1.831501e+00	6.106420e+01	6.106420e+01	5.375175e+01	5.375175e+01	1.202333e+01	1.202333e+01	3.885225e+03	3.885225e+03
+/RequiredEffect		0.659	0.659	1.204	1.204	1.738	1.738	2.063	2.063	3.830	3.830
 
 /Matrix
 1.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 
