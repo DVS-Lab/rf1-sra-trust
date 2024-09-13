@@ -1,0 +1,14 @@
+/ContrastName1	group pos 
+/ContrastName2	group neg 
+/ContrastName3	age pos 
+/ContrastName4	age neg 
+/NumWaves	2
+/NumContrasts	4
+/PPheights		1.000000e+00	1.000000e+00	5.900000e+01	5.900000e+01
+/RequiredEffect		0.335	0.335	1.150	1.150
+
+/Matrix
+1.000000e+00 0.000000e+00 
+-1.000000e+00 0.000000e+00 
+0.000000e+00 1.000000e+00 
+0.000000e+00 -1.000000e+00 
