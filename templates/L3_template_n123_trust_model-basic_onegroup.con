@@ -2,8 +2,8 @@
 /ContrastName2	group neg 
 /NumWaves	1
 /NumContrasts	2
-/PPheights		0.000000e+00	0.000000e+00
-/RequiredEffect		nan	nan
+/PPheights		1.000000e+00	1.000000e+00
+/RequiredEffect		0.335	0.335
 
 /Matrix
 1.000000e+00 
