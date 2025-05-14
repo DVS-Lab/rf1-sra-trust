@@ -1,0 +1,10 @@
+/ContrastName1	gc>cg 
+/ContrastName2	cg>gc 
+/NumWaves	5
+/NumContrasts	2
+/PPheights		1.069036e+00	1.069036e+00
+/RequiredEffect		0.758	0.758
+
+/Matrix
+0.000000e+00 1.000000e+00 -1.000000e+00 0.000000e+00 0.000000e+00 
+0.000000e+00 -1.000000e+00 1.000000e+00 0.000000e+00 0.000000e+00 
