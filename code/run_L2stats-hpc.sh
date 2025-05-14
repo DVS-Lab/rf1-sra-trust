@@ -5,14 +5,14 @@ maindir=~/work/rf1-sra-trust #this should be the only line that has to change if
 scriptdir=$maindir/code
 
 
-mapfile -t myArray < sublist_all.txt
+mapfile -t myArray < sublist-rf1.txt
 
 
 # grab the first 2 elements
-ntasks=14
+ntasks=5
 counter=0
 for task in trust; do
-	for type in "act"; do #"VS_thr5" "dmn"; do # 0 "VS_thr5" "dmn"; do # putting 0 first will indicate "activation"
+	for type in "ppi"; do #"VS_thr5" "dmn"; do # 0 "VS_thr5" "dmn"; do # putting 0 first will indicate "activation"
 		#for run in 1 2; do
 		
 		while [ $counter -lt ${#myArray[@]} ]; do
