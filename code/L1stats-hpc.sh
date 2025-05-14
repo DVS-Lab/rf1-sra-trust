@@ -1,6 +1,6 @@
 #!/bin/bash
-#PBS -l walltime=12:00:00
-#PBS -N L1stats-trust-all
+#PBS -l walltime=03:00:00
+#PBS -N L1stats-trust-huo
 #PBS -q normal
 #PBS -m ae
 #PBS -M cooper.sharp@temple.edu
@@ -12,18 +12,19 @@ source $FSLDIR/etc/fslconf/fsl.sh
 cd $PBS_O_WORKDIR
 
 # ensure paths are correct
-rf1datadir=~/work/rf1-sra-data #this should be the only line that has to change if the rest of the script is set up correctly
-projectdir=~/work/rf1-sra-trust
+shareddir=/gpfs/scratch/tug87422/smithlab-shared
+rf1datadir=$shareddir/rf1-sra-data #this should be the only line that has to change if the rest of the script is set up correctly
+projectdir=$shareddir/rf1-sra-trust
 scriptdir=$projectdir/code
 bidsdir=$rf1datadir/bids
-logdir=$rf1datadir/logs
+logdir=$projectdir/logs
 mkdir -p $logdir
 
 rm -f $logdir/cmd_feat_${PBS_JOBID}.txt
 touch $logdir/cmd_feat_${PBS_JOBID}.txt
 
 TASK=trust
-ppi=amyg-bilateral
+ppi=0
 sm=5
 
 # need to change this to a more targetted list of subjects
@@ -34,8 +35,8 @@ for sub in ${subjects[@]}; do
 		# set inputs and general outputs (should not need to chage across studies in Smith Lab)
 		MAINOUTPUT=${projectdir}/derivatives/fsl/sub-${sub}
 		mkdir -p $MAINOUTPUT
-		DATA=${rf1datadir}/derivatives/fmriprep/sub-${sub}/sub-${sub}/func/sub-${sub}_task-${TASK}_run-${run}_space-MNI152NLin6Asym_desc-preproc_bold.nii.gz
-		CONFOUNDEVS=${rf1datadir}/derivatives/fsl/confounds/sub-${sub}/sub-${sub}_task-${TASK}_run-${run}_desc-fslConfounds.tsv
+		DATA=${rf1datadir}/derivatives/fmriprep/sub-${sub}/func/sub-${sub}_task-${TASK}_run-${run}_part-mag_space-MNI152NLin6Asym_desc-preproc_bold.nii.gz
+		CONFOUNDEVS=${rf1datadir}/derivatives/fsl/confounds_tedana/sub-${sub}/sub-${sub}_task-${TASK}_run-${run}_desc-TedanaPlusConfounds.tsv
 		if [ ! -e $CONFOUNDEVS ]; then
 			echo "missing: $CONFOUNDEVS " >> ${projectdir}/re-runL1.log
 			continue # exiting/continuing to ensure nothing gets run without confounds
