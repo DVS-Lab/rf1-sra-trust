@@ -5,10 +5,10 @@ module load fsl/6.0.2
 source $FSLDIR/etc/fslconf/fsl.sh
 
 # ensure paths are correct
-maindir=~/work/rf1-sra-trust #this should be the only line that has to change if the rest of the script is set up correctly
+maindir=/gpfs/scratch/tug87422/smithlab-shared/rf1-sra-trust #this should be the only line that has to change if the rest of the script is set up correctly
 
 TASK=trust
-ppi=0
+ppi=VS
 sm=5
 
 # need to change this to a more targetted list of subjects

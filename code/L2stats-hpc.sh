@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l walltime=12:00:00
+#PBS -l walltime=03:00:00
 #PBS -N L2stats-trust
 #PBS -q normal
 #PBS -m ae
@@ -10,7 +10,7 @@
 module load fsl/6.0.2
 source $FSLDIR/etc/fslconf/fsl.sh
 cd $PBS_O_WORKDIR
-logdir=/home/tun31934/work/rf1-sra-trust/logs
+logdir=/gpfs/scratch/tug87422/smithlab-shared/rf1-sra-trust/logs
 mkdir -p $logdir
 
 rm -f $logdir/cmd_feat_${PBS_JOBID}.txt
@@ -19,28 +19,28 @@ touch $logdir/cmd_feat_${PBS_JOBID}.txt
 #!/bin/bash
 
 # ensure paths are correct irrespective from where user runs the script
-scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-maindir="$(dirname "$scriptdir")"
+maindir=/gpfs/scratch/tug87422/smithlab-shared/rf1-sra-trust
+scriptdir=$maindir/code
 
 # setting inputs and common variables
 #sub=$1
-type=act
+type=ppi_seed-VS
 sm=5 # edit if necessary
-MAINOUTPUT=/home/tun31934/work/rf1-sra-trust/derivatives/fsl/sub-${sub}
+MAINOUTPUT=$maindir/derivatives/fsl/sub-${sub}
 model=1
 NCOPES=18
 
 
 for sub in ${subjects[@]}; do
 
-MAINOUTPUT=/home/tun31934/work/rf1-sra-trust/derivatives/fsl/sub-${sub}
+MAINOUTPUT=$maindir/derivatives/fsl/sub-${sub}
 	
 	# ppi has more contrasts than act (phys), so need a different L2 template
 	if [ "${type}" == "act" ]; then
-		ITEMPLATE=/home/tun31934/work/rf1-sra-trust/templates/L2_task-trust_model-${model}_type-act_nruns-2.fsf
+		ITEMPLATE=$maindir/templates/L2_task-trust_model-${model}_type-act_nruns-2.fsf
 		NCOPES=${NCOPES}
 	else
-		ITEMPLATE=/home/tun31934/work/rf1-sra-trust/templates/L2_task-trust_model-${model}_type-ppi_nruns-2.fsf
+		ITEMPLATE=$maindir/templates/L2_task-trust_model-${model}_type-ppi_nruns-2.fsf
 		let NCOPES=${NCOPES}+1 # add 1 since we tend to only have one extra contrast for PPI
 	fi
 	INPUT1=${MAINOUTPUT}/L1_task-trust_model-${model}_type-${type}_run-1_sm-${sm}.feat
@@ -62,7 +62,6 @@ MAINOUTPUT=/home/tun31934/work/rf1-sra-trust/derivatives/fsl/sub-${sub}
 		-e 's@INPUT1@'$INPUT1'@g' \
 		-e 's@INPUT2@'$INPUT2'@g' \
 		<$ITEMPLATE> $OTEMPLATE
-		feat $OTEMPLATE
 	
 		# delete unused files
 		for cope in `seq ${NCOPES}`; do

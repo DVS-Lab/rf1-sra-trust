@@ -7,8 +7,8 @@
 #PBS -l nodes=1:ppn=28
 
 # load modules and go to workdir
-module load fsl/6.0.2
-source $FSLDIR/etc/fslconf/fsl.sh
+# module load fsl/6.0.2
+# source $FSLDIR/etc/fslconf/fsl.sh
 cd $PBS_O_WORKDIR
 
 # ensure paths are correct
@@ -24,7 +24,7 @@ rm -f $logdir/cmd_feat_${PBS_JOBID}.txt
 touch $logdir/cmd_feat_${PBS_JOBID}.txt
 
 TASK=trust
-ppi=0
+ppi=VS
 sm=5
 
 # need to change this to a more targetted list of subjects
