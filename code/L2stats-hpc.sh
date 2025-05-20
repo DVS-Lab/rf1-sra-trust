@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l walltime=03:00:00
+#PBS -l walltime=00:30:00
 #PBS -N L2stats-trust
 #PBS -q normal
 #PBS -m ae
@@ -7,16 +7,16 @@
 #PBS -l nodes=1:ppn=28
 
 # load modules and go to workdir
-module load fsl/6.0.2
 source $FSLDIR/etc/fslconf/fsl.sh
 cd $PBS_O_WORKDIR
 logdir=/gpfs/scratch/tug87422/smithlab-shared/rf1-sra-trust/logs
 mkdir -p $logdir
 
+rm -f L2stats-trust.o*
+rm -f L2stats-trust.e*
+
 rm -f $logdir/cmd_feat_${PBS_JOBID}.txt
 touch $logdir/cmd_feat_${PBS_JOBID}.txt
-
-#!/bin/bash
 
 # ensure paths are correct irrespective from where user runs the script
 maindir=/gpfs/scratch/tug87422/smithlab-shared/rf1-sra-trust

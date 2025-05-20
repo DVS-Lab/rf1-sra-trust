@@ -14,6 +14,9 @@ maindir=/gpfs/scratch/tug87422/smithlab-shared/rf1-sra-trust
 logdir=/$maindir/logs
 mkdir -p $logdir
 
+rm -f L3stats-aging.o*
+rm -f L3stats-aging.e*
+
 rm -f $logdir/cmd_feat_${PBS_JOBID}.txt
 touch $logdir/cmd_feat_${PBS_JOBID}.txt
 
