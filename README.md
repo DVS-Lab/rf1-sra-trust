@@ -42,7 +42,10 @@ bash code/run_logged.sh --label trust-EVs -- \
 bash code/run_logged.sh --label trust-L1-activation -- \
   bash code/run_L1stats.sh \
     --manifest logs/runlists/L1-ready.tsv --ppi 0 --jobs 50 \
-    --log-dir logs/L1-activation-current
+    --log-dir logs/L1-activation-current \
+  --check python3 code/audit_outputs.py \
+    --level l1 --manifest logs/runlists/L1-ready.tsv --type act \
+    --output logs/records/L1-act-completeness.tsv
 ```
 
 Build L2 readiness only after both L1 runs are complete:
@@ -55,7 +58,10 @@ python3 code/build_L2_manifest.py --type act \
 bash code/run_logged.sh --label trust-L2-activation -- \
   bash code/run_L2stats.sh \
     --manifest logs/runlists/L2-act-ready.tsv --type act --jobs 20 \
-    --log-dir logs/L2-activation-current
+    --log-dir logs/L2-activation-current \
+  --check python3 code/audit_outputs.py \
+    --level l2 --manifest logs/runlists/L2-act-ready.tsv --type act \
+    --output logs/records/L2-act-completeness.tsv
 ```
 
 For connectivity, run activation first, then use `--ppi VS`, `--ppi dmn`, or `--ppi ecn`. Build the matching L2 manifest with `--type ppi_seed-VS`, `nppi-dmn`, or `nppi-ecn`.
@@ -66,7 +72,7 @@ Open [notebooks/README.md](notebooks/README.md) and run notebooks 01 → 02 → 
 
 ## Repository layout
 
-- `code/`: active manifest, EV, L1/L2, QC, validation, and logging tools; historical material is under `code/archive/`.
+- `code/`: active manifest, EV, L1/L2, QC, completeness-audit, validation, and logging tools; historical material is under `code/archive/`.
 - `templates/`: sole active model-1 FEAT templates; historical L3 materials are archived.
 - `masks/`: the retained VS seed and Smith-network maps with provenance/geometry notes.
 - `notebooks/`: public Neurodesk teaching workflow.
