@@ -10,7 +10,7 @@ build_L1_manifest.py
   → run_L2stats.sh → L2stats.sh
 ```
 
-`project_config.sh` is the single path/naming contract. `trust_qc.py` describes canonical event coverage but never changes inclusion. `audit_outputs.py` verifies every expected L1 or L2 cope/stat product against a manifest. `run_logged.sh` captures ignored raw output and a compact record suitable for Git. `validate_workflow.sh` powers `make test`.
+`project_config.sh` is the single path/naming contract. `trust_qc.py` describes canonical event coverage but never changes inclusion. `audit_outputs.py` verifies every expected L1 or L2 cope/stat product against a manifest. `run_logged.sh` captures ignored raw output and a compact record suitable for Git. Run `validate_workflow.sh` directly for the portable preflight; `make test` remains an optional convenience where Make is installed.
 
 L1 accepts `--ppi 0` for activation, any seed name corresponding to `masks/seed-<name>.nii.gz`, or `dmn`/`ecn` for network PPI. Connectivity requires the corresponding activation FEAT mask. L2 is always fixed effects across Trust runs 1 and 2; `FSLSUB_PARALLEL` defaults to 1 inside `L2stats.sh` so outer `--jobs` remains the concurrency control.
 

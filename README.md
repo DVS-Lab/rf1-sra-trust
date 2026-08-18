@@ -29,7 +29,7 @@ On Linux2:
 ```bash
 cd /ZPOOL/data/projects/rf1-sra-trust
 git pull --ff-only origin main
-make test
+bash code/validate_workflow.sh
 
 python3 code/build_L1_manifest.py \
   --output logs/runlists/L1-ready.tsv \
