@@ -1,57 +1,78 @@
-# SRNDNA: Trust Game Data and Analyses
-This repository contains code related to our manuscript, titled "Age-Related Differences in Ventral Striatal and Default Mode Network Function During Reciprocated Trust" (preprint: https://www.biorxiv.org/content/10.1101/2021.07.29.454071v1.abstract). All hypotheses and analysis plans were pre-registered on AsPredicted on 7/26/2018 and data collection commenced on 7/31/2018. Imaging data will be shared via [OpenNeuro][openneuro] when the manuscript is posted on bioRxiv.
+# RF1-SRA Trust
 
+This is the authoritative downstream repository for RF1-SRA Trust Game fMRI analysis. It converts canonical BIDS events to FSL EVs, runs the established model-1 activation/seed-PPI/network-PPI models, and combines Trust runs 1 and 2 with fixed effects.
 
-## A few prerequisites and recommendations
-- Understand BIDS and be comfortable navigating Linux
-- Install [FSL](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FslInstallation)
-- Install [miniconda or anaconda](https://stackoverflow.com/questions/45421163/anaconda-vs-miniconda)
-- Install PyDeface: `pip install pydeface`
-- Make singularity containers for heudiconv (version: 0.5.4), mriqc (version: 0.15.1), and fmriprep (version: 20.1.0).
+## Reproducibility boundary
 
+Production input comes only from [`rf1-sra-linux2`](https://github.com/DVS-Lab/rf1-sra-linux2):
 
-## Notes on repository organization and files
-- Raw DICOMS (an input to heudiconv) are private and only accessible locally (Smith Lab Linux: /data/sourcedata)
-- Some of the contents of this repository are not tracked (.gitignore) because the files are large and we do not yet have a nice workflow for datalad. These folders include `/data/sourcedata` (dicoms) and parts of `bids` and `derivatives`.
-- Tracked folders and their contents:
-  - `code`: analysis code
-  - `templates`: fsf template files used for FSL analyses
-  - `masks`: images used as masks, networks, and seed regions in analyses
-  - `stimuli`: psychopy scripts and matlab scripts for delivering stimuli and organizing output
-  - `bids`: bids data (only text files since images need to be obtained from [OpenNeuro][openneuro], as described below)
-  - `derivatives`: derivatives from analysis scripts, but only text files (re-run script to regenerate larger outputs)
+- canonical `task-trust` BIDS events;
+- fMRIPrep MNI-space BOLD images;
+- TEDANA-enhanced FSL confounds.
 
+This repository does not own raw logs, DICOM conversion, BIDS construction, fMRIPrep, TEDANA, or confound construction. Generated EVs and FEAT outputs live under ignored `derivatives/fsl/`. The frozen public teaching workflow uses OpenNeuro `ds005123`, version `1.1.3`.
 
-## Basic commands to reproduce our analyses
-```
-# get code and data (two options for data)
-git clone https://github.com/DVS-Lab/srndna-trustgame
-cd srndna-trustgame
-rm -rf bids # remove bids subdirectory since it will be replaced below
+## Pipeline
 
-# option 1 for data -- if outside of lab and reproducing/extending:
-datalad clone https://github.com/OpenNeuroDatasets/ds003745.git bids
-# the bids folder is a datalad dataset
-# you can get all of the data with the command below:
-datalad get sub-*
-
-# option 2 for data -- if inside of lab and testing/training:
-bash code/run_prepdata.sh
-# this creates the bids data, but restrict to a few subjects to save diskspace
-
-# run preprocessing and generate confounds and timing files for analyses
-bash code/run_fmriprep.sh
-python code/MakeConfounds.py --fmriprepDir="derivatives/fmriprep"
-bash code/run_gen3colfiles.sh
-
-# run statistics
-bash code/run_L1stats.sh
-bash code/run_L2stats.sh
-bash code/run_L3stats.sh
+```text
+Linux2 canonical events ──> FSL three-column EVs ──> L1 model-1
+Linux2 fMRIPrep BOLD ──────────────────────────────> activation / seed PPI / nPPI
+Linux2 TEDANA confounds ───────────────────────────> runs 1 + 2 ──> L2 fixed effects
 ```
 
+The established activation model has 10 task EVs and 18 contrasts. Seed PPI and DMN/ECN nPPI each retain 19 contrasts. See [templates/README.md](templates/README.md) for the exact model contract.
 
-## Acknowledgments
-This work was supported, in part, by grants from the National Institutes of Health (R21-MH113917 and R03-DA046733 to DVS and R15-MH122927 to DSF) and a Pilot Grant from the Scientific Research Network on Decision Neuroscience and Aging [to DVS; Subaward of NIH R24-AG054355 (PI Gregory Samanez-Larkin)]. We thank Elizabeth Beard for assistance with task coding, Dennis Desalme, Ben Muzekari, Isaac Levy, Gemma Goldstein, and Srikar Katta for assistance with participant recruitment and data collection, and Jeffrey Dennison for assistance with data processing. DVS was a Research Fellow of the Public Policy Lab at Temple University during the preparation of the manuscript (2019-2020 academic year).
+## Internal quick start
 
-[openneuro]: https://openneuro.org/
+On Linux2:
+
+```bash
+cd /ZPOOL/data/projects/rf1-sra-trust
+git pull --ff-only origin main
+make test
+
+python3 code/build_L1_manifest.py \
+  --output logs/runlists/L1-ready.tsv \
+  --missing-output logs/runlists/L1-missing.tsv
+
+bash code/run_logged.sh --label trust-EVs -- \
+  bash code/run_gen3colfiles.sh \
+    --manifest logs/runlists/L1-ready.tsv --jobs 8
+
+bash code/run_logged.sh --label trust-L1-activation -- \
+  bash code/run_L1stats.sh \
+    --manifest logs/runlists/L1-ready.tsv --ppi 0 --jobs 50 \
+    --log-dir logs/L1-activation-current
+```
+
+Build L2 readiness only after both L1 runs are complete:
+
+```bash
+python3 code/build_L2_manifest.py --type act \
+  --output logs/runlists/L2-act-ready.tsv \
+  --missing-output logs/runlists/L2-act-missing.tsv
+
+bash code/run_logged.sh --label trust-L2-activation -- \
+  bash code/run_L2stats.sh \
+    --manifest logs/runlists/L2-act-ready.tsv --type act --jobs 20 \
+    --log-dir logs/L2-activation-current
+```
+
+For connectivity, run activation first, then use `--ppi VS`, `--ppi dmn`, or `--ppi ecn`. Build the matching L2 manifest with `--type ppi_seed-VS`, `nppi-dmn`, or `nppi-ecn`.
+
+## Public teaching quick start
+
+Open [notebooks/README.md](notebooks/README.md) and run notebooks 01 → 02 → 03 in Neurodesk. They download only one public participant’s Trust files and call the same production scripts/templates used above.
+
+## Repository layout
+
+- `code/`: active manifest, EV, L1/L2, QC, validation, and logging tools; historical material is under `code/archive/`.
+- `templates/`: sole active model-1 FEAT templates; historical L3 materials are archived.
+- `masks/`: the retained VS seed and Smith-network maps with provenance/geometry notes.
+- `notebooks/`: public Neurodesk teaching workflow.
+- `tests/`: lightweight scientific and path-contract tests.
+- `logs/records/`: compact Git-trackable run records; raw logs remain ignored.
+
+## Historical notes
+
+This repository originated as an SRNDNA Trust repository and previously mixed preprocessing, behavioral conversion, analysis, extraction, and presentation assets. The current workflow is intentionally narrower. Historical behavioral/support code and L3 material remain clearly archived and are not production-supported. See [code/WORKFLOW_AUDIT.md](code/WORKFLOW_AUDIT.md).

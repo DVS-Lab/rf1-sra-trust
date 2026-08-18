@@ -1,27 +1,78 @@
 #!/usr/bin/env bash
 
-# this script will convert your BIDS *events.tsv files into the 3-col format for FSL
-# it relies on Tom Nichols' converter, which we store locally under /data/tools 
-# https://github.com/bids-standard/bidsutils
+# Generate one Trust run's EVs from its authoritative canonical BIDS events.
 
+set -euo pipefail
+shopt -s nullglob
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+# shellcheck source=project_config.sh
+source "${SCRIPT_DIR}/project_config.sh"
 
-scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-maindir="$(dirname "$scriptdir")"
-baseout=${maindir}/derivatives/fsl/EVfiles
-if [ ! -d ${baseout} ]; then
-  mkdir -p $baseout
+usage() {
+    cat >&2 <<'EOF'
+Usage: gen3colfiles.sh --subject ID --run ID [options]
+
+Options:
+  --session ID   BIDS session (default: 01)
+  --dry-run      Validate and print the conversion plan without writing
+  --overwrite    Replace an existing EV run atomically
+EOF
+}
+
+subject=""; session="01"; run=""; dry_run=0; overwrite=0
+while (( $# )); do
+    case "$1" in
+        --subject) subject="$2"; shift 2 ;;
+        --session) session="$2"; shift 2 ;;
+        --run) run="$2"; shift 2 ;;
+        --dry-run) dry_run=1; shift ;;
+        --overwrite) overwrite=1; shift ;;
+        -h|--help) usage; exit 0 ;;
+        *) echo "ERROR: unknown argument: $1" >&2; usage; exit 2 ;;
+    esac
+done
+[[ -n "$subject" && -n "$run" ]] || { usage; exit 2; }
+subject="$(normalize_subject "$subject")"; session="$(normalize_session "$session")"
+stem="sub-${subject}_ses-${session}_task-trust_run-${run}"
+events="${BIDS_ROOT}/sub-${subject}/ses-${session}/func/${stem}_events.tsv"
+prefix="$(trust_ev_prefix "$subject" "$session" "$run")"
+target_dir="$(dirname "$prefix")"
+[[ -s "$events" ]] || { echo "ERROR: canonical events missing or empty: $events" >&2; exit 1; }
+printf 'Trust EV plan\n  events: %s\n  output: %s_[trial_type].txt\n' "$events" "$prefix"
+(( dry_run )) && exit 0
+
+existing=("${prefix}"_*.txt)
+if (( ${#existing[@]} )) && (( ! overwrite )); then
+    echo "ERROR: EV files already exist for run-${run}; use --overwrite: $target_dir" >&2
+    exit 1
 fi
 
-sub=$1
+parent="$(dirname "$target_dir")"
+mkdir -p "$parent"
+tmp="$(mktemp -d "${parent}/.trust-ev.XXXXXX")"
+trap 'rm -rf -- "$tmp"' EXIT
+tmp_prefix="${tmp}/run-${run}"
+bash "${SCRIPT_DIR}/BIDSto3col.sh" "$events" "$tmp_prefix"
 
-for run in 1 2; do
-  input=/ZPOOL/data/projects/rf1-sra-linux2/bids/sub-${sub}/ses-01/func/sub-${sub}_task-trust_run-${run}_events.tsv
-  output=${baseout}/sub-${sub}/trust
-  mkdir -p $output
-  if [ -e $input ]; then
-    bash /ZPOOL/data/tools/BIDSto3col.sh $input ${output}/run-${run}
-  else
-  echo "PATH ERROR: cannot locate ${input}."
-  continue
-  fi
+required=(
+    choice_computer choice_friend choice_stranger
+    outcome_computer_defect outcome_computer_recip
+    outcome_friend_defect outcome_friend_recip
+    outcome_stranger_defect outcome_stranger_recip
+)
+missing=()
+for ev in "${required[@]}"; do
+    [[ -s "${tmp_prefix}_${ev}.txt" ]] || missing+=("$ev")
 done
+if (( ${#missing[@]} )); then
+    printf 'ERROR: scientifically required non-miss EV categories are absent: %s\n' "${missing[*]}" >&2
+    echo "Review this run; the workflow will not invent outcomes or change its design." >&2
+    exit 1
+fi
+
+mkdir -p "$target_dir"
+rm -f -- "${prefix}"_*.txt
+for generated in "${tmp_prefix}"_*.txt; do
+    mv -- "$generated" "$target_dir/"
+done
+echo "Wrote Trust EVs: $target_dir"
