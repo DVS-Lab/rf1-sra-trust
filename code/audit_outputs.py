@@ -50,6 +50,18 @@ def l2_required(ncopes: int) -> list[str]:
     return required
 
 
+def l1_timeseries(output: Path, session: str, run: str, kind: str) -> list[Path]:
+    if kind.startswith("ppi_seed-"):
+        seed = kind.removeprefix("ppi_seed-")
+        return [output.parent / f"ts_task-trust_ses-{session}_mask-{seed}_run-{run}.txt"]
+    if kind in {"nppi-dmn", "nppi-ecn"}:
+        return [
+            output.parent / f"ts_task-trust_ses-{session}_network-smith09-net{network}_run-{run}.txt"
+            for network in range(10)
+        ]
+    return []
+
+
 def read_manifest(path: Path, level: str) -> list[dict[str, str]]:
     with path.open(newline="", encoding="utf-8") as handle:
         reader = csv.DictReader(handle, delimiter="\t")
@@ -88,6 +100,12 @@ def main() -> int:
         )
         required = l1_required(ncopes) if args.level == "l1" else l2_required(ncopes)
         missing = [relative for relative in required if not (output / relative).is_file()]
+        if args.level == "l1":
+            missing.extend(
+                f"time-series:{path}"
+                for path in l1_timeseries(output, row["session"], run, args.kind)
+                if not path.is_file() or path.stat().st_size == 0
+            )
         if missing:
             report.append({
                 "subject": row["subject"], "session": row["session"], "run": run,

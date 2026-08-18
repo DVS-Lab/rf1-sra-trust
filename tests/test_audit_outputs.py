@@ -23,6 +23,14 @@ class AuditOutputTests(unittest.TestCase):
         self.assertIn("cope1.feat/stats/zstat1.nii.gz", required)
         self.assertIn("cope19.feat/cluster_mask_zstat1.nii.gz", required)
 
+    def test_seed_and_network_time_series_contracts(self) -> None:
+        output = Path("/fsl/sub-1/ses-01/model.feat")
+        seed = audit.l1_timeseries(output, "01", "2", "ppi_seed-VS")
+        self.assertEqual(seed, [Path("/fsl/sub-1/ses-01/ts_task-trust_ses-01_mask-VS_run-2.txt")])
+        network = audit.l1_timeseries(output, "01", "1", "nppi-dmn")
+        self.assertEqual(len(network), 10)
+        self.assertEqual(network[-1], Path("/fsl/sub-1/ses-01/ts_task-trust_ses-01_network-smith09-net9_run-1.txt"))
+
     def test_manifest_requires_run_for_l1(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             manifest = Path(tmp) / "manifest.tsv"
