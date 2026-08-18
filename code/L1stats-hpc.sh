@@ -3,7 +3,7 @@
 #PBS -N L1stats-trust-huo
 #PBS -q normal
 #PBS -m ae
-#PBS -M cooper.sharp@temple.edu
+#PBS -M derrick.dwamena@temple.edu
 #PBS -l nodes=1:ppn=28
 
 # load modules and go to workdir

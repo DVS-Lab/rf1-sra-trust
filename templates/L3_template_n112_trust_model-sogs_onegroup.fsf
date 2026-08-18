@@ -269,6 +269,9 @@ set fmri(paradigm_hp) 100
 set fmri(totalVoxels) 902629
 
 
+set fmri(fnirt_config) "T1_2_MNI152_2mm"
+
+
 # Number of lower-level copes feeding into higher-level analysis
 set fmri(ncopeinputs) 0
 

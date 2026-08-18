@@ -1,20 +1,17 @@
-#!/bin/bash
-
-# load modules and go to workdir
-module load fsl/6.0.2
-source $FSLDIR/etc/fslconf/fsl.sh
-
-# ensure paths are correct
-maindir=/gpfs/scratch/tug87422/smithlab-shared/rf1-sra-trust #this should be the only line that has to change if the rest of the script is set up correctly
-
+#!/usr/bin/env bash
+# ensure paths are correct irrespective from where user runs the script
+scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+maindir="$(dirname "$scriptdir")"
 TASK=trust
-ppi=VS
+ppi=0
 sm=5
 
 # need to change this to a more targetted list of subjects
 # also should only run this if the inputs exist. add if statements.
-for sub in `ls -1d ${maindir}/derivatives/fsl/sub-*`; do
-	sub=${sub:(-5)}
+for sub in `cat $scriptdir/sublist_DD128.txt`; do
+	echo $sub
+	#sub=${sub:(-5)}
+	echo $sub 
 	for run in 1 2; do
 
 		# set inputs and general outputs (should not need to chage across studies in Smith Lab)
@@ -39,9 +36,9 @@ for sub in `ls -1d ${maindir}/derivatives/fsl/sub-*`; do
 		# fix registration as per NeuroStars post:
 		# https://neurostars.org/t/performing-full-glm-analysis-with-fsl-on-the-bold-images-preprocessed-by-fmriprep-without-re-registering-the-data-to-the-mni-space/784/3
 		mkdir -p ${OUTPUT}.feat/reg
-		ln -s $FSLDIR/etc/flirtsch/ident.mat ${OUTPUT}.feat/reg/example_func2standard.mat
-		ln -s $FSLDIR/etc/flirtsch/ident.mat ${OUTPUT}.feat/reg/standard2example_func.mat
-		ln -s ${OUTPUT}.feat/mean_func.nii.gz ${OUTPUT}.feat/reg/standard.nii.gz
+		cp -r $FSLDIR/etc/flirtsch/ident.mat ${OUTPUT}.feat/reg/example_func2standard.mat
+		cp -r $FSLDIR/etc/flirtsch/ident.mat ${OUTPUT}.feat/reg/standard2example_func.mat
+		cp -r ${OUTPUT}.feat/mean_func.nii.gz ${OUTPUT}.feat/reg/standard.nii.gz
 
 		# delete unused files
 		rm -rf ${OUTPUT}.feat/stats/res4d.nii.gz

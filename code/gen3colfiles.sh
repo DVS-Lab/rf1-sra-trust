@@ -15,7 +15,7 @@ fi
 sub=$1
 
 for run in 1 2; do
-  input=/ZPOOL/data/projects/rf1-sra-data/bids/sub-${sub}/func/sub-${sub}_task-trust_run-${run}_events.tsv
+  input=/ZPOOL/data/projects/rf1-sra-linux2/bids/sub-${sub}/ses-01/func/sub-${sub}_task-trust_run-${run}_events.tsv
   output=${baseout}/sub-${sub}/trust
   mkdir -p $output
   if [ -e $input ]; then

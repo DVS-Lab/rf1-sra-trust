@@ -8,7 +8,7 @@ scriptname = matlab.desktop.editor.getActiveFilename;
 cd(codedir);
 addpath(codedir)
 cd ..
-maindir = '/ZPOOL/data/projects/rf1-sra-data';%pwd;
+maindir = '/ZPOOL/data/projects/rf1-sra-linux2';%pwd;
 
 % Partner is Friend=3, Stranger=2, Computer=1
 % Reciprocate is Yes=1, No=0
@@ -21,7 +21,13 @@ maindir = '/ZPOOL/data/projects/rf1-sra-data';%pwd;
 rawdata='/ZPOOL/data/projects/rf1-sra/stimuli/Scan-Investment_Game/logs';
 
 %sublist(s)=10369;
-sublist = [10317 10369 10402 10418 10462 10478 10486 10529 10541 10572 10581 10584 10585 10589 10590 10596 10603 10606 10608 10617 10636 10638 10641 10642 10644 10647 10649 10652 10656 10657 10659 10663 10673 10674 10677 10685 10691 10700 10701 10716 10720 10723 10741 10774 10777 10781 10783 10800 10804];
+%sublist = [10317 10369 10402 10418 10462 10478 10486 10529 10541 10572 10581 10584 10585 10589 10590 10596 10603 10606 10608 10617 10636 10638 10641 10642 10644 10647 10649 10652 10656 10657 10659 10663 10673 10674 10677 10685 10691 10700 10701 10716 10720 10723 10741 10774 10777 10781 10783 10800 10804];
+% Get the directory of the current script to ensure the path is correct 
+scriptDir = fileparts(mfilename('/ZPOOL/data/projects/rf1-sra-linux2/code')); 
+filePath = fullfile(scriptDir, 'sublist_DD128.txt'); 
+
+% Read the subjects into a column vector 
+sublist = load('/ZPOOL/data/projects/rf1-derrick/code/sublist_DD128.txt');
 
 for s = 1:length(sublist)
 
@@ -71,7 +77,7 @@ try
 
         
         fname = sprintf('sub-%03d_task-trust_run-%01d_events.tsv',sublist(s),r+1);
-        output = fullfile(maindir,'bids',['sub-' num2str(sublist(s))],'func');
+        output = fullfile(maindir,'bids',['sub-' num2str(sublist(s))],'ses-01','func');
         disp(output);
         if ~exist(output,'dir')
             disp("Second checkpoint");
