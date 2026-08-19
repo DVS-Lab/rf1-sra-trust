@@ -16,6 +16,8 @@ L1 accepts `--ppi 0` for activation, any seed name corresponding to `masks/seed-
 
 For a combined activation plus seed-PPI production run, `run_L1_activation_ppi.sh` runs those two models sequentially inside each work unit. Its `--jobs` value therefore caps total concurrent FEAT processes rather than multiplying activation and PPI concurrency. `audit_L1_activation_ppi.sh` checks both output families.
 
+The corresponding fixed-effects wrapper is `run_L2_activation_ppi.sh`. It sequences activation and seed-PPI L2 within each paired subject-session, preserves `FSLSUB_PARALLEL=1`, and is checked by `audit_L2_activation_ppi.sh`.
+
 All active commands support `--help`. Prefer manifest-driven production and use `--dry-run` before writing or launching FEAT. Use `--overwrite` only for intentional regeneration.
 
 Files under `archive/` are provenance-only historical SRNDNA/RF1 material. They are excluded from current validation and must not be used as production entry points.

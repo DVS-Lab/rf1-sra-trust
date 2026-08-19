@@ -68,6 +68,8 @@ For connectivity, run activation first, then use `--ppi VS`, `--ppi dmn`, or `--
 
 To launch activation and one seed-PPI model together without doubling concurrency, use `code/run_L1_activation_ppi.sh`. Each run-level worker completes activation before its matching PPI model; `--jobs 50` therefore means at most 50 simultaneous FEAT processes total.
 
+For paired fixed effects, `code/run_L2_activation_ppi.sh` provides the same sequencing at the subject-session level. `--jobs 20` means at most 20 concurrent L2 models, while `L2stats.sh` keeps within-model FSL submission serial.
+
 ## Public teaching quick start
 
 Open [notebooks/README.md](notebooks/README.md) and run notebooks 01 → 02 → 03 in Neurodesk. They download only one public participant’s Trust files and call the same production scripts/templates used above.
