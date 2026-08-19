@@ -14,6 +14,8 @@ build_L1_manifest.py
 
 L1 accepts `--ppi 0` for activation, any seed name corresponding to `masks/seed-<name>.nii.gz`, or `dmn`/`ecn` for network PPI. Connectivity requires the corresponding activation FEAT mask. L2 is always fixed effects across Trust runs 1 and 2; `FSLSUB_PARALLEL` defaults to 1 inside `L2stats.sh` so outer `--jobs` remains the concurrency control.
 
+For a combined activation plus seed-PPI production run, `run_L1_activation_ppi.sh` runs those two models sequentially inside each work unit. Its `--jobs` value therefore caps total concurrent FEAT processes rather than multiplying activation and PPI concurrency. `audit_L1_activation_ppi.sh` checks both output families.
+
 All active commands support `--help`. Prefer manifest-driven production and use `--dry-run` before writing or launching FEAT. Use `--overwrite` only for intentional regeneration.
 
 Files under `archive/` are provenance-only historical SRNDNA/RF1 material. They are excluded from current validation and must not be used as production entry points.

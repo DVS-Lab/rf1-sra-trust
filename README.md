@@ -66,6 +66,8 @@ bash code/run_logged.sh --label trust-L2-activation -- \
 
 For connectivity, run activation first, then use `--ppi VS`, `--ppi dmn`, or `--ppi ecn`. Build the matching L2 manifest with `--type ppi_seed-VS`, `nppi-dmn`, or `nppi-ecn`.
 
+To launch activation and one seed-PPI model together without doubling concurrency, use `code/run_L1_activation_ppi.sh`. Each run-level worker completes activation before its matching PPI model; `--jobs 50` therefore means at most 50 simultaneous FEAT processes total.
+
 ## Public teaching quick start
 
 Open [notebooks/README.md](notebooks/README.md) and run notebooks 01 → 02 → 03 in Neurodesk. They download only one public participant’s Trust files and call the same production scripts/templates used above.
